@@ -10,7 +10,17 @@ class PersonStore {
   }
 
   @computed get partner() {
+    if (!this.selectedPerson.partner) {
+      return undefined;
+    }
     return this.people[this.selectedPerson.partner.name];
+  }
+
+  @computed get offspring() {
+    if (!this.selectedPerson.offspring) {
+      return undefined;
+    }
+    return this.selectedPerson.offspring.map((child) => this.people[child]);
   }
 
   selectPerson(name) {
@@ -28,6 +38,7 @@ const defaultPeople = [
     partner: {
       name: "Kay Nelson",
     },
+    offspring: ["Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista","Corinthians Paulista" ,"Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista" ],
     selected: true
   },
   {
@@ -36,7 +47,12 @@ const defaultPeople = [
     name: "Kay Nelson",
     partner: {
       name: "Solon Aguiar"
-    }
+    },
+  },
+  {
+      avatar: "https://pbs.twimg.com/profile_images/863026079468056576/FPIP0JH3.jpg",
+      short_name: "Corinthians",
+      name: "Corinthians Paulista",
   }
 ];
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -14,7 +13,7 @@ import {observer} from 'mobx-react';
 @observer
 class Person extends Component {
   render() {
-    const { selectedPerson, partner } = this.props.store;
+    const { selectedPerson, partner, offspring } = this.props.store;
 
     return (
       <View style={styles.container}>
@@ -30,10 +29,11 @@ class Person extends Component {
           </View>
 
           <View style={styles.offspring}>
-            <Offspring offspring={this.props.offspring} />
+            <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />
           </View>
-
         </View>
+
+
       </View>
     );
   }
