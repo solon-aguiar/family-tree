@@ -27,5 +27,29 @@ export default styles = StyleSheet.create({
   },
   offspring: {
     marginTop: 20
-  }
+  },
+  modalContainer: {
+    padding: 20,
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  personDetailsContainer: {
+    alignItems: 'center',
+  },
+  closeButton: {
+    margin: 5,
+    alignItems: 'flex-end',
+  },
+  closeButtonText: {
+    fontSize: 20,
+  },
+  avatarModal: {
+    height: 400,
+    width: 200,
+    margin: 5
+  },
+  personDetailsData: {
+    fontSize: 20,
+    marginBottom: 5
+  },
 });
