@@ -8,3 +8,4 @@ app to describe my family tree to people I want
 * use a localization librayr
 * read data file from server
 * cache images
+* metrics
