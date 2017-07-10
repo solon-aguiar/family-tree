@@ -1,3 +1,4 @@
-git@github.com:solon-aguiar/family-tree.git{
-  "presets": ["react-native"]
+{
+  "presets": ["react-native"],
+   "plugins": ["transform-decorators-legacy"]
 }
