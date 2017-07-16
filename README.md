@@ -9,3 +9,4 @@ app to describe my family tree to people I want
 * read data file from server
 * cache images
 * metrics
+* lint
