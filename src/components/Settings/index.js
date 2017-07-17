@@ -51,8 +51,9 @@ class Settings extends Component {
                 onChangeText={(token) => this.setState({token})}
                 value={this.state.token}
                 style={styles.textInput}
+                autoCapitalize={'none'}
               />
-              <TouchableOpacity onPress={() => { this.props.updateData(this.state.token); this.toggleModal(false)}} style={styles.submitBtn}>
+              <TouchableOpacity onPress={() => this.props.updateData(this.state.token, () => this.toggleModal(false))} style={styles.submitBtn}>
                 <Text style={styles.text}>Done!</Text>
               </TouchableOpacity>
             </View>

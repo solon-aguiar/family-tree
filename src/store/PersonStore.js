@@ -28,6 +28,11 @@ class PersonStore {
     this.people[name].selected = true;
     this.selectedPerson = this.people[name];
   }
+
+  updatePeople(newPeople) {
+    newPeople.forEach((element) => this.people[element.name] = element);
+    this.selectedPerson = Object.values(this.people).find((elem) => elem.selected === true);
+  }
 };
 
 const defaultPeople = [
@@ -38,7 +43,7 @@ const defaultPeople = [
     partner: {
       name: "Kay Nelson",
     },
-    offspring: ["Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista","Corinthians Paulista" ,"Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista", "Corinthians Paulista" ],
+    offspring: [],
     selected: true
   },
   {

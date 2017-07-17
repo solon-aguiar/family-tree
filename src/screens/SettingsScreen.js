@@ -7,20 +7,32 @@ import {
 import Settings from '../components/Settings';
 import Localization from '../services/Localization';
 import PersonStore from '../store/PersonStore';
+import { NavigationActions } from 'react-navigation';
 
 class SettingsScreen extends Component {
    static navigationOptions = {
     title: 'Settings',
   };
 
-  updateData = (token) => {
-    fetch('solon', {
+  updateData = (token, callback) => {
+    fetch('https://family-tree-server.herokuapp.com/', {
         headers: {
-          'api-token': token
+          'api_token': token
         }
-      }
-    ).then((response) => response.json()
-    ).then((responseJson) => PersonStore.people = responseJson);
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      PersonStore.updatePeople(responseJson);
+      
+      callback();
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: 'Home'})
+        ]
+      });
+      this.props.navigation.dispatch(resetAction);
+    });
   }
 
   render() {
