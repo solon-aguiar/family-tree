@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 import {observer} from 'mobx-react';
+import * as SettingsActions from '../../actions/SettingsActions';
 
 @observer
 class Settings extends Component {
@@ -53,9 +54,14 @@ class Settings extends Component {
                 style={styles.textInput}
                 autoCapitalize={'none'}
               />
-              <TouchableOpacity onPress={() => this.props.updateData(this.state.token, () => this.toggleModal(false))} style={styles.submitBtn}>
-                <Text style={styles.text}>Done!</Text>
-              </TouchableOpacity>
+              <View style={styles.buttonsPanel}>
+                  <TouchableOpacity onPress={() => SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false))} style={styles.btn}>
+                    <Text style={styles.text}>Done!</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => this.toggleModal(false)} style={styles.btn}>
+                    <Text style={styles.text}>Back</Text>
+                  </TouchableOpacity>
+              </View>
             </View>
           </Modal>
         </View>

@@ -44,6 +44,8 @@ class Person extends Component {
   render() {
     const { selectedPerson, partner, offspring } = this.props.store;
 
+    if (selectedPerson) {
+    console.log("selectedPerson", selectedPerson);
     return (
       <View style={styles.container}>
         <Text style={styles.name}>{selectedPerson.short_name}</Text>
@@ -53,7 +55,7 @@ class Person extends Component {
             <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
               <Image
                 style={styles.selfImage}
-                source={{uri: selectedPerson.avatar}}
+                source={{uri: selectedPerson.avatar.url}}
               />
             </TouchableOpacity>
             <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />
@@ -73,6 +75,9 @@ class Person extends Component {
         </Modal>
       </View>
     );
+    } else {
+    return <View></View>
+    }
   }
 }
 

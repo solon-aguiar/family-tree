@@ -12,7 +12,7 @@ function Child(props) {
 console.log(props);
   return (
     <TouchableOpacity onPress={() => props.onPress(props.name)}>
-      <Image style={styles.childAvatar} source={{uri: props.avatar}} />
+      <Image style={styles.childAvatar} source={{uri: props.avatar.url}} />
     </TouchableOpacity>
   );
 }

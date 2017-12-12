@@ -28,9 +28,13 @@ export default styles = StyleSheet.create({
     marginTop: 100,
     height: 40
   },
-  submitBtn: {
+  btn: {
+    width: 100,
+    marginTop: 15
+  },
+  buttonsPanel: {
     flex: 1,
-    marginTop: 15,
-    alignItems: 'center'
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 });

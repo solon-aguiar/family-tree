@@ -19,7 +19,7 @@ export default function Partner(props) {
         <View style={styles.container}>
           <Image
             style={styles.avatar}
-            source={{uri: props.avatar}}
+            source={{uri: props.avatar.url}}
           />
           <Text style={styles.name}>{props.short_name}</Text>
         </View>
