@@ -25,7 +25,10 @@ function updateData(navigation, token, successCallback, errorCallback) {
                              fileCache : true,
                              appendExt : 'jpg'
                           })
-                          .fetch('GET', 'https://family-tree-server.herokuapp.com/avatars?name=' + element.avatar.file)
+                          .fetch('GET', 'https://family-tree-server.herokuapp.com/avatars?name=' + element.avatar.file, {
+                              'api_token': token,
+                              'Cache-Control': 'no-cache'
+                          })
                           .then((response) => {
                               element.avatar.tempPath = response.path();
                               resolve(element);
