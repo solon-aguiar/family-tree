@@ -3,30 +3,39 @@ import {
 } from 'react-native';
 
 export default styles = StyleSheet.create({
-  container: {
-    margin: 15,
-    flex: 1
-  },
-  name: {
-    fontSize: 50,
-    alignItems: 'center',
-    flex: 0.15
-  },
+    container: {
+        flex: 1
+    },
+    information: {
+        margin: 10,
+        flex: 1,
+        flexDirection: 'column'
+    },
+    name: {
+        fontSize: 50,
+        flex: 0.1
+    },
+    nameAndPartner: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+    offspring: {
+        flex: 1,
+        marginTop: 10
+    },
+    parents: {
+        flex: 1,
+        marginTop: 10
+    },
   photos: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    marginTop: 20
+    flex: 1
   },
   relationship: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   selfImage: {
-    height: 300,
-    width: 200
-  },
-  offspring: {
-    marginTop: 20
+    height: 250
   },
   modalContainer: {
     padding: 20,

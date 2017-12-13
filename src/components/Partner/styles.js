@@ -4,7 +4,8 @@ import {
 
 export default styles = StyleSheet.create({
   container: {
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1
   },
   avatar: {
     marginTop: 5,

@@ -5,7 +5,9 @@ import {
   View,
   Image,
   Modal,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
+  ScrollView
 } from 'react-native';
 import styles from './styles';
 import Offspring from '../Offspring';
@@ -44,39 +46,38 @@ class Person extends Component {
 
   render() {
     const { selectedPerson, partner, offspring, parents } = this.props.store;
+    var {height, width} = Dimensions.get('window');
 
     if (selectedPerson) {
         return (
-          <View style={styles.container}>
-            <Text style={styles.name}>{selectedPerson.short_name}</Text>
+          <ScrollView>
+              <View style={styles.container}>
+                  <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
+                      <Image
+                          style={[styles.selfImage, {width}]}
+                          source={{uri: selectedPerson.avatar.url}}
+                      />
+                  </TouchableOpacity>
 
-            <View style={styles.photos}>
-              <View style={styles.relationship}>
-                <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
-                  <Image
-                    style={styles.selfImage}
-                    source={{uri: selectedPerson.avatar.url}}
-                  />
-                </TouchableOpacity>
-                <View style={styles.relations}>
-                    {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} style={styles.partner} />}
-                    {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} style={styles.parents} />}
-                </View>
+                  <View style={styles.information}>
+                      <View style={styles.nameAndPartner}>
+                          <Text style={styles.name}>{selectedPerson.short_name}</Text>
+                          {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />}
+                      </View>
+
+                      {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
+                      {offspring && <Offspring offspring={offspring} onPress={this.props.onSelectPartner} style={styles.offspring} />}
+                  </View>
+
+                <Modal
+                  animationType={"slide"}
+                  transparent={true}
+                  visible={this.state.showingPersonDetails}
+                >
+                  <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} />
+                </Modal>
               </View>
-
-              <View style={styles.offspring}>
-                <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />
-              </View>
-            </View>
-
-            <Modal
-              animationType={"slide"}
-              transparent={true}
-              visible={this.state.showingPersonDetails}
-            >
-              <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} />
-            </Modal>
-          </View>
+          </ScrollView>
         );
     } else {
     return <View></View>

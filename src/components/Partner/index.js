@@ -10,10 +10,6 @@ import {
 import styles from './styles';
 
 export default function Partner(props) {
-    if (!props.name) {
-      return null;
-    }
-
     return (
       <View>
       <TouchableOpacity onPress={() => props.onSelectPartner(props.name)}>

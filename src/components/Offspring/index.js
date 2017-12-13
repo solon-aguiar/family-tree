@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   Image,
+  View,
   TouchableOpacity,
   Text
 } from 'react-native';
@@ -17,12 +18,12 @@ function Child(props) {
 }
 
 export default function Offspring(props) {
-  if (!props.offspring) {
-    return null;
-  }
   return (
-    <ScrollView horizontal={true} style={styles.list}>
-      {props.offspring.map((child, index) => <Child {...child} onPress={props.onPress} key={index} />)}
-    </ScrollView>
+    <View style={styles.container}>
+        <Text style={styles.text}>Offspring</Text>
+        <ScrollView horizontal={true} style={styles.list}>
+            {props.offspring.map((child, index) => <Child {...child} onPress={props.onPress} key={index} />)}
+        </ScrollView>
+    </View>
   );
 }

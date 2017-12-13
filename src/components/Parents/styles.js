@@ -4,13 +4,13 @@ import {
 
 export default styles = StyleSheet.create({
   container: {
-      alignItems: 'center',
-      marginTop: 10
+      flex: 1,
+      flexDirection: 'column'
   },
   thumbnail: {
-      height: 60,
-      width: 40,
-      marginLeft: 5
+      height: 70,
+      width: 60,
+      marginRight: 5
   },
   thumbnails: {
       marginTop: 5,
