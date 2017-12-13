@@ -15,7 +15,8 @@ export default styles = StyleSheet.create({
         fontSize: 50
     },
     nameContainer: {
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray'
     },
     nameAndPartner: {
         flex: 1,
@@ -26,16 +27,13 @@ export default styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column'
     },
-    offspring: {
-        flex: 1,
-        marginTop: 10
-    },
   photos: {
     flex: 1
   },
-  relationship: {
+  relationships: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 20
   },
   selfImage: {
     height: 250

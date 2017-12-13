@@ -8,8 +8,8 @@ export default styles = StyleSheet.create({
       flexDirection: 'column'
   },
   thumbnail: {
-      height: 70,
-      width: 60,
+      height: 90,
+      width: 70,
       marginRight: 5
   },
   thumbnails: {

@@ -19,7 +19,6 @@ export default function Partner(props) {
             style={styles.avatar}
             source={{uri: props.avatar.url}}
           />
-          <Text style={styles.name}>{props.short_name}</Text>
         </View>
       </TouchableOpacity>
       </View>

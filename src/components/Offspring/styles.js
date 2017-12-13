@@ -14,7 +14,8 @@ export default styles = StyleSheet.create({
   },
   container: {
       flex: 1,
-      flexDirection: 'column'
+      flexDirection: 'column',
+      marginTop: 20
   },
   text: {
       marginTop: 10

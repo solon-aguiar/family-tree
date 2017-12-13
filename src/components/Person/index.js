@@ -60,17 +60,14 @@ class Person extends Component {
                   </TouchableOpacity>
 
                   <View style={styles.information}>
-                      <View style={styles.nameAndPartner}>
-                          <View style={styles.nameAndParents}>
-                              <View style={styles.nameContainer}>
-                                  <Text style={styles.name}>{selectedPerson.short_name}</Text>
-                              </View>
-                              {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
-                          </View>
+                      <View style={styles.nameContainer}>
+                          <Text style={styles.name}>{selectedPerson.short_name}</Text>
+                      </View>
+                      <View style={styles.relationships}>
+                          {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
                           {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />}
                       </View>
-
-                      {offspring && <Offspring offspring={offspring} onPress={this.props.onSelectPartner} style={styles.offspring} />}
+                      {offspring && <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />}
                   </View>
 
                 <Modal
