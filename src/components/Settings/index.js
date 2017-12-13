@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ActivityIndicator,
   View,
   Image,
   Text,
@@ -19,13 +20,30 @@ class Settings extends Component {
 
     this.state = {
       showingModal: false,
+      loading: false,
       token: 'type text'
     }
   }
 
-  toggleModal = (showingModal) => this.setState({showingModal})
+  toggleModal = (showingModal) => {
+      this.setState({showingModal, loading: false})
+  }
+
+  loadData = () => {
+      if (!!!this.state.loading) {
+            this.setState({loading: true})
+            SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false));
+      }
+  }
+
+  back = () => {
+      if (!!!this.state.loading) {
+             this.toggleModal(false);
+      }
+  }
 
   render() {
+      console.log('state', this.state);
       return (
         <View style={styles.container}>
           <View style={styles.languagePicker}>
@@ -55,13 +73,14 @@ class Settings extends Component {
                 autoCapitalize={'none'}
               />
               <View style={styles.buttonsPanel}>
-                  <TouchableOpacity onPress={() => SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false))} style={styles.btn}>
+                  <TouchableOpacity onPress={() => this.loadData()} style={styles.btn}>
                     <Text style={styles.text}>Done!</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.toggleModal(false)} style={styles.btn}>
+                  <TouchableOpacity onPress={() => this.back()} style={styles.btn}>
                     <Text style={styles.text}>Back</Text>
                   </TouchableOpacity>
               </View>
+              <ActivityIndicator size="large" color="#0000ff" animating={this.state.loading} />
             </View>
           </Modal>
         </View>

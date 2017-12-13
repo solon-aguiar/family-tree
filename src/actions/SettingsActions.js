@@ -7,21 +7,18 @@ import { NavigationActions } from 'react-navigation';
 import RNFetchBlob from 'react-native-fetch-blob'
 
 function updateData(navigation, token, callback) {
-    console.log("ZETA, I CALLED UPDATE DATA");
     RNFetchBlob.fetch('GET', 'https://family-tree-server.herokuapp.com/', {
           'api_token': token,
           'Cache-Control': 'no-cache'
     })
     .then((response) => {
-       console.log("got response", response);
        return response.json()
     })
     .then((responseJson) => {
-        console.log("got JSON", responseJson)
         return responseJson.map((element) => {
            if (element.avatar) {
                const existingPersonData = PersonStore.people[element.name];
-               if (!existingPersonData || !existingPersonData.avatar || existingPersonData.avatar.sha !== element.avatar.sha) {
+               if (!existingPersonData || !existingPersonData.avatar || existingPersonData.avatar.sha !== element.avatar.sha || !existingPersonData.avatar.url) {
                    return new Promise((resolve, reject) => {
                         RNFetchBlob
                           .config({
@@ -38,14 +35,13 @@ function updateData(navigation, token, callback) {
                           });
                    });
            } else {
-               return element;
+               return {...element, avatar: existingPersonData.avatar};
            }
            }
         });
     })
     .then((elements) => Promise.all(elements))
     .then((localElements) => {
-       console.log("local!", localElements)
        return localElements.map((el) => {
            return new Promise((resolve, reject) => {
                if (el.avatar.tempPath){
@@ -65,7 +61,6 @@ function updateData(navigation, token, callback) {
     })
     .then((allPromises) => Promise.all(allPromises))
     .then((completedElements) => {
-      console.log("saving", completedElements)
       AsyncStorage.setItem('peopleData', JSON.stringify(completedElements), () => {
             PersonStore.updatePeople(completedElements);
             callback();

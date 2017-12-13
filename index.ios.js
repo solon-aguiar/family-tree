@@ -20,7 +20,7 @@ const FamilyTreeApp = StackNavigator({
 });
 
 AsyncStorage.getItem('peopleData').then((data) => {
-   //PersonStore.init(JSON.parse(data));
+   PersonStore.updatePeople(JSON.parse(data));
 });
 
 AppRegistry.registerComponent('FamilyTree', () => FamilyTreeApp);

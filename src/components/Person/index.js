@@ -10,6 +10,7 @@ import {
 import styles from './styles';
 import Offspring from '../Offspring';
 import Partner from '../Partner';
+import Parents from '../Parents';
 import {observer} from 'mobx-react';
 
 function PersonDetails(props) {
@@ -22,7 +23,7 @@ function PersonDetails(props) {
           <Text style={styles.personDetailsData}>{props.name}</Text>
           <Image
             style={styles.avatarModal}
-            source={{uri: props.avatar}}
+            source={{uri: props.avatar.url}}
           />
           <Text style={styles.personDetailsData}>{`Called by: ${props.short_name}`}</Text>
           {props.place_of_birth && <Text style={styles.personDetailsData}>{`Place of birth: ${props.place_of_birth}`}</Text>}
@@ -42,39 +43,41 @@ class Person extends Component {
   toggleShowingPersonDetails = () => this.setState({showingPersonDetails: !this.state.showingPersonDetails});
 
   render() {
-    const { selectedPerson, partner, offspring } = this.props.store;
+    const { selectedPerson, partner, offspring, parents } = this.props.store;
 
     if (selectedPerson) {
-    console.log("selectedPerson", selectedPerson);
-    return (
-      <View style={styles.container}>
-        <Text style={styles.name}>{selectedPerson.short_name}</Text>
+        return (
+          <View style={styles.container}>
+            <Text style={styles.name}>{selectedPerson.short_name}</Text>
 
-        <View style={styles.photos}>
-          <View style={styles.relationship}>
-            <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
-              <Image
-                style={styles.selfImage}
-                source={{uri: selectedPerson.avatar.url}}
-              />
-            </TouchableOpacity>
-            <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />
+            <View style={styles.photos}>
+              <View style={styles.relationship}>
+                <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
+                  <Image
+                    style={styles.selfImage}
+                    source={{uri: selectedPerson.avatar.url}}
+                  />
+                </TouchableOpacity>
+                <View style={styles.relations}>
+                    {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} style={styles.partner} />}
+                    {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} style={styles.parents} />}
+                </View>
+              </View>
+
+              <View style={styles.offspring}>
+                <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />
+              </View>
+            </View>
+
+            <Modal
+              animationType={"slide"}
+              transparent={true}
+              visible={this.state.showingPersonDetails}
+            >
+              <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} />
+            </Modal>
           </View>
-
-          <View style={styles.offspring}>
-            <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />
-          </View>
-        </View>
-
-        <Modal
-          animationType={"slide"}
-          transparent={true}
-          visible={this.state.showingPersonDetails}
-        >
-          <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} />
-        </Modal>
-      </View>
-    );
+        );
     } else {
     return <View></View>
     }

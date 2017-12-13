@@ -15,7 +15,9 @@ export default function Partner(props) {
     }
 
     return (
+      <View>
       <TouchableOpacity onPress={() => props.onSelectPartner(props.name)}>
+        <Text>Significant Other</Text>
         <View style={styles.container}>
           <Image
             style={styles.avatar}
@@ -24,5 +26,6 @@ export default function Partner(props) {
           <Text style={styles.name}>{props.short_name}</Text>
         </View>
       </TouchableOpacity>
+      </View>
     );
 }

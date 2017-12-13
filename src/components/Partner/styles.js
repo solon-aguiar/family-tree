@@ -7,10 +7,11 @@ export default styles = StyleSheet.create({
     alignItems: 'center'
   },
   avatar: {
-    height: 50,
-    width: 150
+    marginTop: 5,
+    height: 90,
+    width: 80
   },
   name: {
-    marginTop: 10
+    marginTop: 5
   }
 });

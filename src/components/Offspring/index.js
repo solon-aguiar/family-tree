@@ -9,7 +9,6 @@ import {
 import styles from './styles';
 
 function Child(props) {
-console.log(props);
   return (
     <TouchableOpacity onPress={() => props.onPress(props.name)}>
       <Image style={styles.childAvatar} source={{uri: props.avatar.url}} />

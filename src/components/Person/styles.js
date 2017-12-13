@@ -52,4 +52,9 @@ export default styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 5
   },
+  relations: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  }
 });
