@@ -12,18 +12,21 @@ export default styles = StyleSheet.create({
         flexDirection: 'column'
     },
     name: {
-        fontSize: 50,
-        flex: 0.1
+        fontSize: 50
+    },
+    nameContainer: {
+        borderBottomWidth: 1
     },
     nameAndPartner: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    nameAndParents: {
+        flex: 1,
+        flexDirection: 'column'
     },
     offspring: {
-        flex: 1,
-        marginTop: 10
-    },
-    parents: {
         flex: 1,
         marginTop: 10
     },

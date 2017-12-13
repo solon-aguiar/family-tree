@@ -61,11 +61,15 @@ class Person extends Component {
 
                   <View style={styles.information}>
                       <View style={styles.nameAndPartner}>
-                          <Text style={styles.name}>{selectedPerson.short_name}</Text>
+                          <View style={styles.nameAndParents}>
+                              <View style={styles.nameContainer}>
+                                  <Text style={styles.name}>{selectedPerson.short_name}</Text>
+                              </View>
+                              {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
+                          </View>
                           {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />}
                       </View>
 
-                      {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
                       {offspring && <Offspring offspring={offspring} onPress={this.props.onSelectPartner} style={styles.offspring} />}
                   </View>
 
