@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import {
   ScrollView,
-  StyleSheet,
   Image,
+  Dimensions,
   View,
   TouchableOpacity,
   Text
 } from 'react-native';
 import styles from './styles';
-
-function Child(props) {
-  return (
-    <TouchableOpacity onPress={() => props.onPress(props.name)}>
-      <Image style={styles.childAvatar} source={{uri: props.avatar.url}} />
-    </TouchableOpacity>
-  );
-}
+import ClickableAvatar from '../ClickableAvatar';
 
 export default function Offspring(props) {
-  return (
-    <View style={styles.container}>
-        <Text style={styles.text}>Offspring</Text>
-        <ScrollView horizontal={true} style={styles.list}>
-            {props.offspring.map((child, index) => <Child {...child} onPress={props.onPress} key={index} />)}
-        </ScrollView>
-    </View>
-  );
+    const {width} = Dimensions.get('window');
+    const photoWidth = (width - 20)/6;
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.text}>Offspring</Text>
+            <View style={styles.list}>
+                {props.offspring.map((child, index) =>
+                    <ClickableAvatar
+                        key={index}
+                        width={photoWidth}
+                        height={1.3*photoWidth}
+                        imageUrl={child.avatar.url}
+                        style={styles.photo}
+                        onClick={() => props.onPress(child.name)}
+                    />
+                )}
+            </View>
+        </View>
+    );
 }

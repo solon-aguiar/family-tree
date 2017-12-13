@@ -14,9 +14,6 @@ export default function Gallery(props) {
     const photoWidth = width/4;
 
     const allPeople = Object.values(props.store.people);
-    for (i = 0; i < 200; i++) {
-        allPeople.push(allPeople[0]);
-    }
     const people = props.query ? allPeople.filter((person) => person.name.indexOf(props.query) !== -1) : allPeople;
 
     return (

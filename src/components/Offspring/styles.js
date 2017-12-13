@@ -4,13 +4,12 @@ import {
 
 export default styles = StyleSheet.create({
   list: {
-      marginTop: 5,
-      height: 60
+      flexDirection: 'row',
+      flexWrap: 'wrap'
   },
-  childAvatar: {
-      height: 70,
-      width: 60,
-      marginRight: 5
+  photo: {
+      borderWidth: 1,
+      borderColor: 'white'
   },
   container: {
       flex: 1,
