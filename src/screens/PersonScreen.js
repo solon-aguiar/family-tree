@@ -9,13 +9,17 @@ import Toolbar from '../components/Toolbar';
 import PersonStore from '../store/PersonStore';
 
 class PersonScreen extends Component {
-  static navigationOptions = {
-    title: 'Person Info',
-  };
+    static navigationOptions = {
+        title: 'Person Info',
+        headerStyle: {
+            marginTop: 10
+        }
+    };
 
   displayPerson = (name) => PersonStore.selectPerson(name);
   navigateToSettings = () => this.props.navigation.navigate('Settings');
   openGallery = () => this.props.navigation.navigate('Gallery');
+  startSearch = () => this.props.navigation.navigate('Search');
 
   render() {
     return (
@@ -29,6 +33,7 @@ class PersonScreen extends Component {
         <Toolbar
             openSettings={this.navigateToSettings}
             openGallery={this.openGallery}
+            startSearch={this.startSearch}
             style={styles.toolbar}
         />
       </View>

@@ -4,7 +4,10 @@ import Localization from '../services/Localization';
 
 class SettingsScreen extends Component {
    static navigationOptions = {
-    title: 'Settings',
+       title: 'Settings',
+       headerStyle: {
+           marginTop: 10
+       }
   };
 
   render() {

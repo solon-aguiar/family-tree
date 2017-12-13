@@ -67,9 +67,10 @@ class Settings extends Component {
             <View style={styles.modal}>
               <TextInput
                 onChangeText={(token) => this.setState({token})}
-                value={this.state.token}
+                placeholder={"Type the secret password here"}
                 style={styles.textInput}
                 autoCapitalize={'none'}
+                autoCorrect={false}
               />
               <View style={styles.buttonsPanel}>
                   <TouchableOpacity onPress={() => this.loadData()} style={styles.btn}>
@@ -79,7 +80,7 @@ class Settings extends Component {
                     <Text style={styles.text}>Back</Text>
                   </TouchableOpacity>
               </View>
-              <ActivityIndicator size="large" color="#0000ff" animating={this.state.loading} />
+              <ActivityIndicator size="large" color="black" animating={this.state.loading} style={styles.loadingIndicator} />
             </View>
           </Modal>
         </View>

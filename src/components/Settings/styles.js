@@ -36,5 +36,8 @@ export default styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  loadingIndicator: {
+      flex: 1
   }
 });
