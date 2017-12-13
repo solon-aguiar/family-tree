@@ -21,7 +21,8 @@ class Settings extends Component {
     this.state = {
       showingModal: false,
       loading: false,
-      token: 'type text'
+      token: 'type text',
+      showError: false
     }
   }
 
@@ -31,14 +32,18 @@ class Settings extends Component {
 
   loadData = () => {
       if (!!!this.state.loading) {
-            this.setState({loading: true})
-            SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false));
+          this.setState({loading: true, showError: false})
+          SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false), this.showError);
       }
+  }
+
+  showError = () => {
+      this.setState({showingModal: true, loading: false, showError: true})
   }
 
   back = () => {
       if (!!!this.state.loading) {
-             this.toggleModal(false);
+          this.toggleModal(false);
       }
   }
 
@@ -80,7 +85,8 @@ class Settings extends Component {
                     <Text style={styles.text}>Back</Text>
                   </TouchableOpacity>
               </View>
-              <ActivityIndicator size="large" color="black" animating={this.state.loading} style={styles.loadingIndicator} />
+              {this.state.showError && <Text style={styles.error}>There was an error updating the data. Try again!</Text>}
+              <ActivityIndicator size="large" color="gray" animating={this.state.loading} style={styles.loadingIndicator} />
             </View>
           </Modal>
         </View>

@@ -39,5 +39,9 @@ export default styles = StyleSheet.create({
   },
   loadingIndicator: {
       flex: 1
+  },
+  error: {
+      textAlign: 'center',
+      color: 'red'
   }
 });

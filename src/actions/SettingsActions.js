@@ -6,7 +6,7 @@ import PersonStore from '../store/PersonStore';
 import { NavigationActions } from 'react-navigation';
 import RNFetchBlob from 'react-native-fetch-blob'
 
-function updateData(navigation, token, callback) {
+function updateData(navigation, token, successCallback, errorCallback) {
     RNFetchBlob.fetch('GET', 'https://family-tree-server.herokuapp.com/', {
           'api_token': token,
           'Cache-Control': 'no-cache'
@@ -63,7 +63,7 @@ function updateData(navigation, token, callback) {
     .then((completedElements) => {
       AsyncStorage.setItem('peopleData', JSON.stringify(completedElements), () => {
             PersonStore.updatePeople(completedElements);
-            callback();
+            successCallback();
             const resetAction = NavigationActions.reset({
               index: 0,
               actions: [
@@ -74,7 +74,7 @@ function updateData(navigation, token, callback) {
       });
     })
     .catch((err) => {
-      console.log(err);
+        errorCallback();
     });
 }
 
