@@ -43,7 +43,6 @@ class Settings extends Component {
   }
 
   render() {
-      console.log('state', this.state);
       return (
         <View style={styles.container}>
           <View style={styles.languagePicker}>

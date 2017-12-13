@@ -12,11 +12,13 @@ import {
 import { StackNavigator } from 'react-navigation';
 import PersonScreen from './src/screens/PersonScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import GalleryScreen from './src/screens/GalleryScreen';
 import PersonStore from './src/store/PersonStore';
 
 const FamilyTreeApp = StackNavigator({
   Home: { screen: PersonScreen },
   Settings: { screen: SettingsScreen },
+  Gallery: { screen: GalleryScreen },
 });
 
 AsyncStorage.getItem('peopleData').then((data) => {

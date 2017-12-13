@@ -3,7 +3,12 @@ import {
 } from 'react-native';
 
 export default styles = StyleSheet.create({
-  container: {
-    flex: 1
+  scrollContainer: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
   },
+  photo: {
+      borderWidth: 1,
+      borderColor: 'white'
+  }
 });

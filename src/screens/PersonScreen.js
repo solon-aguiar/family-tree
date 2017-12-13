@@ -15,6 +15,7 @@ class PersonScreen extends Component {
 
   onSelectPartner = (name) => PersonStore.selectPerson(name);
   navigateToSettings = () => this.props.navigation.navigate('Settings');
+  openGallery = () => this.props.navigation.navigate('Gallery');
 
   render() {
     return (
@@ -27,6 +28,7 @@ class PersonScreen extends Component {
         />
         <Toolbar
             openSettings={this.navigateToSettings}
+            openGallery={this.openGallery}
             style={styles.toolbar}
         />
       </View>

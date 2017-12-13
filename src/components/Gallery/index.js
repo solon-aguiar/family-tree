@@ -1,31 +1,35 @@
-'use strict'
-
-import React, { Component } from 'react';
+import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
+  Dimensions,
   Image,
   TouchableOpacity,
   Text
 } from 'react-native';
 import styles from './styles';
+import ClickableAvatar from '../ClickableAvatar';
 
-function Person(props) {
-  return <Text>{props.name}</Text>;
-}
+export default function Gallery(props) {
+    const {width} = Dimensions.get('window');
+    const photoWidth = width/4;
 
-class Gallery extends Component {
-  constructor(props) {
-    super(props);
-  }
+    const allPeople = Object.values(props.store.people);
+    for (i = 0; i < 200; i++) {
+        allPeople.push(allPeople[0]);
+    }
+    const people = props.query ? allPeople.filter((person) => person.name.indexOf(props.query) !== -1) : allPeople;
 
-  render() {
     return (
-      <View>
-        {this.props.people.map((person) => <Person {...person} /> )}
-      </View>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+            {people.map((person, index) =>
+                <ClickableAvatar
+                    key={index}
+                    width={photoWidth}
+                    height={1.3*photoWidth}
+                    imageUrl={person.avatar.url}
+                    style={styles.photo}
+                 />
+            )}
+        </ScrollView>
     );
-  }
 }
-
-export default Gallery;
