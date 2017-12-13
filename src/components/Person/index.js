@@ -67,10 +67,10 @@ class Person extends Component {
                           <Text style={styles.name}>{selectedPerson.short_name}</Text>
                       </View>
                       <View style={styles.relationships}>
-                          {parents && <Parents parents={parents} onSelectParent={this.props.onSelectPartner} />}
-                          {partner && <Partner {...partner} onSelectPartner={this.props.onSelectPartner} />}
+                          {parents && <Parents parents={parents} onPress={this.props.displayPerson} />}
+                          {partner && <Partner {...partner} onPress={this.props.displayPerson} />}
                       </View>
-                      {offspring && <Offspring offspring={offspring} onPress={this.props.onSelectPartner} />}
+                      {offspring && <Offspring offspring={offspring} onPress={this.props.displayPerson} />}
                   </View>
 
                 <Modal

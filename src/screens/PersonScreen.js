@@ -13,7 +13,7 @@ class PersonScreen extends Component {
     title: 'Person Info',
   };
 
-  onSelectPartner = (name) => PersonStore.selectPerson(name);
+  displayPerson = (name) => PersonStore.selectPerson(name);
   navigateToSettings = () => this.props.navigation.navigate('Settings');
   openGallery = () => this.props.navigation.navigate('Gallery');
 
@@ -22,7 +22,7 @@ class PersonScreen extends Component {
       <View style={styles.container}>
         <Person
             store={PersonStore}
-            onSelectPartner={this.onSelectPartner}
+            displayPerson={this.displayPerson}
             openSettings={this.navigateToSettings}
             style={styles.personDetails}
         />

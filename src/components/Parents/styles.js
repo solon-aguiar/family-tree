@@ -11,5 +11,9 @@ export default styles = StyleSheet.create({
       marginTop: 5,
       flexDirection: 'row',
       justifyContent: 'flex-start'
+  },
+  photo: {
+      borderWidth: 2,
+      borderColor: 'white'
   }
 });

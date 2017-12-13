@@ -11,7 +11,7 @@ export default function Partner(props) {
         <View>
             <Text>Significant Other</Text>
             <ClickableAvatar
-                onClick={() => props.onSelectPartner(props.name)}
+                onClick={() => props.onPress(props.name)}
                 width={photoWidth}
                 height={1.3*photoWidth}
                 imageUrl={props.avatar.url}

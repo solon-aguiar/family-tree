@@ -13,17 +13,19 @@ export default function Parents(props) {
             <Text>Parents</Text>
             <View style={styles.thumbnails}>
                 <ClickableAvatar
-                    onClick={() => props.onSelectParent(props.parents[0].name)}
+                    onClick={() => props.onPress(props.parents[0].name)}
                     width={photoWidth}
                     height={1.3*photoWidth}
                     imageUrl={props.parents[0].avatar.url}
+                    style={styles.photo}
                 />
                 {props.parents[1] &&
                     <ClickableAvatar
-                        onClick={() => props.onSelectParent(props.parents[1].name)}
+                        onClick={() => props.onPress(props.parents[1].name)}
                         width={photoWidth}
                         height={1.3*photoWidth}
                         imageUrl={props.parents[1].avatar.url}
+                        style={styles.photo}
                     />
                 }
             </View>
