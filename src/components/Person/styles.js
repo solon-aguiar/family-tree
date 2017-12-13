@@ -23,7 +23,7 @@ export default styles = StyleSheet.create({
   },
   selfImage: {
     height: 300,
-    width: 150
+    width: 200
   },
   offspring: {
     marginTop: 20

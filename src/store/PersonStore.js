@@ -30,11 +30,9 @@ class PersonStore {
   }
 
    @computed get parents() {
-      console.log("ANTES", this.selectedPerson);
       if (!this.selectedPerson || !this.selectedPerson.parents) {
         return undefined;
       }
-      console.log("PARENTS", this.selectedPerson.parents.map((parent) => this.people[parent.name]));
       return this.selectedPerson.parents.map((parent) => this.people[parent.name]);
     }
 
