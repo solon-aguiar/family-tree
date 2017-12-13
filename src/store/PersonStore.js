@@ -11,8 +11,10 @@ class PersonStore {
   @observable selectedPerson;
 
   updatePeople(peopleArray) {
-    peopleArray.forEach((element) => this.people[element.name] = element);
-    this.selectedPerson = randomPerson(this.people);
+      if (peopleArray) {
+          peopleArray.forEach((element) => this.people[element.name] = element);
+          this.selectedPerson = randomPerson(this.people);
+      }
   }
 
   @computed get partner() {

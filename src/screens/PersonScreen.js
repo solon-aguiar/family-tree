@@ -19,8 +19,16 @@ class PersonScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Person store={PersonStore} onSelectPartner={this.onSelectPartner} style={styles.personDetails} />
-        <Toolbar openSettings={this.navigateToSettings} style={styles.toolbar} />
+        <Person
+            store={PersonStore}
+            onSelectPartner={this.onSelectPartner}
+            openSettings={this.navigateToSettings}
+            style={styles.personDetails}
+        />
+        <Toolbar
+            openSettings={this.navigateToSettings}
+            style={styles.toolbar}
+        />
       </View>
     );
   }

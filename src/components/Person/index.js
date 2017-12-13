@@ -13,6 +13,7 @@ import styles from './styles';
 import Offspring from '../Offspring';
 import Partner from '../Partner';
 import Parents from '../Parents';
+import NoDataView from '../NoDataView';
 import {observer} from 'mobx-react';
 
 function PersonDetails(props) {
@@ -81,7 +82,7 @@ class Person extends Component {
           </ScrollView>
         );
     } else {
-    return <View></View>
+        return <NoDataView openSettings={this.props.openSettings} />;
     }
   }
 }
