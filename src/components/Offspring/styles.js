@@ -5,7 +5,8 @@ import {
 export default styles = StyleSheet.create({
   list: {
       flexDirection: 'row',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      marginTop: 5
   },
   photo: {
       borderWidth: 1,
@@ -14,7 +15,7 @@ export default styles = StyleSheet.create({
   container: {
       flex: 1,
       flexDirection: 'column',
-      marginTop: 20
+      marginTop: 10
   },
   text: {
       marginTop: 10

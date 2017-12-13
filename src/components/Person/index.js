@@ -15,6 +15,7 @@ import Partner from '../Partner';
 import Parents from '../Parents';
 import NoDataView from '../NoDataView';
 import {observer} from 'mobx-react';
+import ClickableAvatar from '../ClickableAvatar';
 
 function PersonDetails(props) {
   return (
@@ -47,18 +48,19 @@ class Person extends Component {
 
   render() {
     const { selectedPerson, partner, offspring, parents } = this.props.store;
-    var {height, width} = Dimensions.get('window');
+    const { width } = Dimensions.get('window');
 
     if (selectedPerson) {
         return (
           <ScrollView>
               <View style={styles.container}>
-                  <TouchableOpacity onPress={this.toggleShowingPersonDetails}>
-                      <Image
-                          style={[styles.selfImage, {width}]}
-                          source={{uri: selectedPerson.avatar.url}}
-                      />
-                  </TouchableOpacity>
+                  <ClickableAvatar
+                      onClick={this.toggleShowingPersonDetails}
+                      width={width}
+                      height={0.8*width}
+                      style={styles.selfImage}
+                      imageUrl={selectedPerson.avatar.url}
+                  />
 
                   <View style={styles.information}>
                       <View style={styles.nameContainer}>

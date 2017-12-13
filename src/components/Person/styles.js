@@ -27,6 +27,11 @@ export default styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column'
     },
+    modalContainer: {
+        padding: 30,
+        flex: 1,
+        backgroundColor: 'white',
+      },
   photos: {
     flex: 1
   },
@@ -34,14 +39,6 @@ export default styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20
-  },
-  selfImage: {
-    height: 250
-  },
-  modalContainer: {
-    padding: 20,
-    flex: 1,
-    backgroundColor: 'white',
   },
   personDetailsContainer: {
     alignItems: 'center',
