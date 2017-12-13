@@ -12,7 +12,6 @@ import {
 import styles from './styles';
 import {observer} from 'mobx-react';
 import * as SettingsActions from '../../actions/SettingsActions';
-import { NavigationActions } from 'react-navigation';
 
 @observer
 class Settings extends Component {
@@ -31,19 +30,9 @@ class Settings extends Component {
       this.setState({showingModal, loading: false})
   }
 
-  navigateToHome() {
-      const resetAction = NavigationActions.reset({
-          index: 0,
-          actions: [
-              NavigationActions.navigate({ routeName: 'Home'})
-          ]
-      });
-      this.props.navigation.dispatch(resetAction);
-  }
-
   updateSuccess() {
       this.toggleModal(false);
-      this.navigateToHome();
+      this.props.navigateToHome();
   }
 
   loadData = () => {
@@ -64,11 +53,7 @@ class Settings extends Component {
   }
 
   deleteData = () => {
-      SettingsActions.deleteData(this.deleteSuccess);
-  }
-
-  deleteSuccess = () => {
-      this.navigateToHome();
+      SettingsActions.deleteData(this.props.navigateToHome);
   }
 
   render() {

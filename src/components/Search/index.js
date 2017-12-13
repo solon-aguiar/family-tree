@@ -28,6 +28,7 @@ class Search extends Component {
                 <Gallery
                     store={this.props.store}
                     query={this.state.query}
+                    onClick={this.props.onClick}
                 />
             </View>
         );

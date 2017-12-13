@@ -25,6 +25,7 @@ export default function Gallery(props) {
                     height={1.3*photoWidth}
                     imageUrl={person.avatar.url}
                     style={styles.photo}
+                    onClick={() => props.onClick(person.name)}
                  />
             )}
         </ScrollView>

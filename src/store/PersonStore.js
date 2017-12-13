@@ -39,7 +39,9 @@ class PersonStore {
     }
 
     selectPerson(name) {
-        this.people[name].selected = true;
+        console.log("people", this.people);
+        console.log("selected", this.selectedPerson);
+        console.log("name", name);
         this.selectedPerson = this.people[name];
     }
 
