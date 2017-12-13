@@ -18,16 +18,20 @@ export default function Offspring(props) {
         <View style={styles.container}>
             <Text style={styles.text}>Offspring</Text>
             <View style={styles.list}>
-                {props.offspring.map((child, index) =>
-                    <ClickableAvatar
-                        key={index}
-                        width={photoWidth}
-                        height={1.3*photoWidth}
-                        imageUrl={child.avatar.url}
-                        style={styles.photo}
-                        onClick={() => props.onPress(child.name)}
-                    />
-                )}
+                {props.offspring.map((child, index) => {
+                    if (child) {
+                        return (<ClickableAvatar
+                                    key={index}
+                                    width={photoWidth}
+                                    height={1.3*photoWidth}
+                                    imageUrl={child.avatar.url}
+                                    style={styles.photo}
+                                    onClick={() => props.onPress(child.name)}
+                                />
+                        );
+
+                    }
+                })}
             </View>
         </View>
     );

@@ -3,10 +3,9 @@ import {
    CameraRoll
 } from 'react-native';
 import PersonStore from '../store/PersonStore';
-import { NavigationActions } from 'react-navigation';
-import RNFetchBlob from 'react-native-fetch-blob'
+import RNFetchBlob from 'react-native-fetch-blob';
 
-function updateData(navigation, token, successCallback, errorCallback) {
+function updateData(token, successCallback, errorCallback) {
     RNFetchBlob.fetch('GET', 'https://family-tree-server.herokuapp.com/', {
           'api_token': token,
           'Cache-Control': 'no-cache'
@@ -67,13 +66,6 @@ function updateData(navigation, token, successCallback, errorCallback) {
       AsyncStorage.setItem('peopleData', JSON.stringify(completedElements), () => {
             PersonStore.updatePeople(completedElements);
             successCallback();
-            const resetAction = NavigationActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Home'})
-              ]
-            });
-            navigation.dispatch(resetAction);
       });
     })
     .catch((err) => {
@@ -81,4 +73,11 @@ function updateData(navigation, token, successCallback, errorCallback) {
     });
 }
 
-export {updateData};
+function deleteData(successCallback) {
+    AsyncStorage.removeItem('peopleData').then((response) => {
+        PersonStore.clear();
+        successCallback();
+    });
+}
+
+export {updateData, deleteData};

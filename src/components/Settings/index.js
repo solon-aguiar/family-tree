@@ -12,6 +12,7 @@ import {
 import styles from './styles';
 import {observer} from 'mobx-react';
 import * as SettingsActions from '../../actions/SettingsActions';
+import { NavigationActions } from 'react-navigation';
 
 @observer
 class Settings extends Component {
@@ -30,14 +31,29 @@ class Settings extends Component {
       this.setState({showingModal, loading: false})
   }
 
+  navigateToHome() {
+      const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+              NavigationActions.navigate({ routeName: 'Home'})
+          ]
+      });
+      this.props.navigation.dispatch(resetAction);
+  }
+
+  updateSuccess() {
+      this.toggleModal(false);
+      this.navigateToHome();
+  }
+
   loadData = () => {
       if (!!!this.state.loading) {
           this.setState({loading: true, showError: false})
-          SettingsActions.updateData(this.props.navigation, this.state.token, () => this.toggleModal(false), this.showError);
+          SettingsActions.updateData(this.state.token, () => this.updateSuccess(), () => this.updateError());
       }
   }
 
-  showError = () => {
+  updateError = () => {
       this.setState({showingModal: true, loading: false, showError: true})
   }
 
@@ -45,6 +61,14 @@ class Settings extends Component {
       if (!!!this.state.loading) {
           this.toggleModal(false);
       }
+  }
+
+  deleteData = () => {
+      SettingsActions.deleteData(this.deleteSuccess);
+  }
+
+  deleteSuccess = () => {
+      this.navigateToHome();
   }
 
   render() {
@@ -58,11 +82,15 @@ class Settings extends Component {
               {this.props.localization.getAvailableLanguages().map((lang) => <Picker.Item label={lang.language_name} value={lang.language_code} key={lang.language_code}/>)}
             </Picker>
           </View>
-          <View style={styles.updateDataBtn}>
+          <View style={styles.buttons}>
             <TouchableOpacity onPress={() => this.toggleModal(true)}>
-              <Text style={styles.text}>Update data file</Text>
+                <Text style={styles.text}>Update data file</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.deleteData}>
+                <Text style={styles.text}>Delete data file</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.filler} />
 
           <Modal
             animationType={"slide"}

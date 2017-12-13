@@ -9,8 +9,20 @@ export default styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flex: 1
   },
-  updateDataBtn: {
-    alignItems: 'center'
+  languagePicker: {
+      flex: 2
+  },
+  buttons: {
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flex: 1
+  },
+  action: {
+      borderColor: 'black',
+      borderWidth: 1
+  },
+  filler: {
+      flex: 1
   },
   text: {
     fontSize: 25
@@ -29,8 +41,8 @@ export default styles = StyleSheet.create({
     height: 40
   },
   btn: {
-    width: 100,
-    marginTop: 15
+      width: 100,
+      marginTop: 15
   },
   buttonsPanel: {
     flex: 1,
