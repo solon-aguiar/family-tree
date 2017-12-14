@@ -18,7 +18,7 @@ export default function UnscrollablePeopleList(props) {
                         return (<ClickableAvatar
                                     key={index}
                                     width={props.photoWidth}
-                                    height={1.3*props.photoWidth}
+                                    height={1.3 * props.photoWidth}
                                     imageUrl={child.avatar.url}
                                     style={styles.photo}
                                     onClick={() => props.onPress(child.name)}

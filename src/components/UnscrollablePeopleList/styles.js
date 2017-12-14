@@ -19,6 +19,7 @@ export default styles = StyleSheet.create({
       marginTop: 10
   },
   text: {
-      marginTop: 10
+      marginTop: 10,
+      fontSize: 18
   }
 });
