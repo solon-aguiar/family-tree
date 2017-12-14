@@ -15,6 +15,7 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import GalleryScreen from './src/screens/GalleryScreen';
 import SearchScreen from './src/screens/SearchScreen';
 import PersonStore from './src/store/PersonStore';
+import { STORAGE_DATA_KEY } from './src/common/Storage';
 
 const FamilyTreeApp = StackNavigator({
   Home: { screen: PersonScreen },
@@ -23,7 +24,7 @@ const FamilyTreeApp = StackNavigator({
   Search: { screen: SearchScreen }
 });
 
-AsyncStorage.getItem('peopleData').then((data) => {
+AsyncStorage.getItem(STORAGE_DATA_KEY).then((data) => {
    PersonStore.updatePeople(JSON.parse(data));
 });
 
