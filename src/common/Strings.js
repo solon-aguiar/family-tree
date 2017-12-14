@@ -9,6 +9,8 @@ const ENGLISH = Object.freeze({
     //Messages
     ClickPrompt: 'Click on',
     DownloadDataExplanation: 'and select "Update Data" to download the newest data file',
+    QuizExplanation: 'In this game, you will be presented with a photo and three names. Select the name that corresponds to the person depicted.',
+    QuizCommand: 'Choose an option below to start or go back to the previous screen.',
 
     //Relationships
     Offspring: 'Offspring',
@@ -27,12 +29,22 @@ const ENGLISH = Object.freeze({
     PasswordPrompt: 'Type in the password...',
     Done: 'Done',
     Back: 'Back',
+    Start: "Let's do this!",
 
     //Pages
     GalleryScreen: 'Gallery',
     SearchScreen: 'Search',
     PersonScreen: 'Person info',
-    SettingsScreen: 'Settings'
+    SettingsScreen: 'Settings',
+    QuizScreen: 'Quiz',
+
+    //Quiz
+    QuizCorrectQuestionsAnswered: '# of questions answered correctly',
+    QuizTotalQuestions: '# of questions in total',
+    QuizRemainingQuestions: '# of questions remaining',
+    QuizCorrectAnswer: 'Good job! You got the right answer',
+    QuizWrongAnswer: 'Oh no! That was the wrong answer',
+    QuizNextQuestion: 'Next question!'
 });
 
 const PORTUGUESE = Object.freeze({

@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import Gallery from '../components/Gallery';
+import Quiz from '../components/Quiz';
 import PersonStore from '../store/PersonStore';
 import { NavigationActions } from 'react-navigation';
 import Localization from '../services/Localization';
 import Colors from '../common/Colors';
 
-class GalleryScreen extends Component {
+class QuizScreen extends Component {
     static navigationOptions = {
-        title: Localization.getString('GalleryScreen'),
+        title: Localization.getString('QuizScreen'),
         headerStyle: {
             marginTop: 10,
             backgroundColor: Colors.MODAL_BACKGROUND
         }
     };
 
-    navigateToHome() {
+    navigateToHome = () => {
         const resetAction = NavigationActions.reset({
             index: 0,
             actions: [
@@ -24,14 +24,9 @@ class GalleryScreen extends Component {
         this.props.navigation.dispatch(resetAction);
     }
 
-    onClick = (name) => {
-        PersonStore.selectPerson(name);
-        this.navigateToHome();
-    }
-
     render() {
-        return <Gallery store={PersonStore} navigation={this.props.navigation} onClick={(name) => this.onClick(name)} />;
+        return <Quiz store={PersonStore} endGame={this.navigateToHome} />;
     }
 }
 
-export default GalleryScreen;
+export default QuizScreen;

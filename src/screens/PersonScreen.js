@@ -22,6 +22,7 @@ class PersonScreen extends Component {
   navigateToSettings = () => this.props.navigation.navigate('Settings');
   openGallery = () => this.props.navigation.navigate('Gallery');
   startSearch = () => this.props.navigation.navigate('Search');
+  startQuiz = () => this.props.navigation.navigate('Quiz');
 
   render() {
     return (
@@ -36,6 +37,7 @@ class PersonScreen extends Component {
             openSettings={this.navigateToSettings}
             openGallery={this.openGallery}
             startSearch={this.startSearch}
+            startQuiz={this.startQuiz}
             style={styles.toolbar}
         />
       </View>
