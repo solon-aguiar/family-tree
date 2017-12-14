@@ -26,14 +26,14 @@ class PersonStore {
 
     @computed get offspring() {
         if (!this.selectedPerson || !this.selectedPerson.offspring) {
-            return [];
+            return undefined;
         }
         return this.selectedPerson.offspring.map((child) => this.people[child]);
     }
 
     @computed get parents() {
         if (!this.selectedPerson || !this.selectedPerson.parents) {
-          return [];
+          return undefined;
         }
         return this.selectedPerson.parents.map((parent) => this.people[parent.name]);
     }

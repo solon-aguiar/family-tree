@@ -16,7 +16,7 @@ export default function Offspring(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Offspring</Text>
+            {props.offspring && <Text style={styles.text}>Offspring</Text>}
             <View style={styles.list}>
                 {props.offspring.map((child, index) => {
                     if (child) {
