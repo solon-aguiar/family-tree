@@ -11,7 +11,7 @@ const ENGLISH = Object.freeze({
     DownloadDataExplanation: 'and select "Update Data" to download the newest data file',
 
     //Relationships
-    OffSpring: 'Offspring',
+    Offspring: 'Offspring',
     Partner: 'Significant Other',
     Parents: 'Parents',
 
@@ -47,7 +47,7 @@ const PORTUGUESE = Object.freeze({
     DownloadDataExplanation: 'e escolha "Atualizar dados" para baixar os dados atualizados',
 
     //Relationships
-    OffSpring: 'Filhos',
+    Offspring: 'Filhos',
     Partner: 'Parceiro',
     Parents: 'Pais',
 

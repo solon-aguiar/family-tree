@@ -9,9 +9,7 @@ import {
   ScrollView
 } from 'react-native';
 import styles from './styles';
-import Offspring from '../Offspring';
-import Partner from '../Partner';
-import Parents from '../Parents';
+import UnscrollablePeopleList from '../UnscrollablePeopleList';
 import NoDataView from '../NoDataView';
 import {observer} from 'mobx-react';
 import ClickableAvatar from '../ClickableAvatar';
@@ -26,7 +24,7 @@ function PersonDetails(props) {
             <View style={styles.personDetailsContainer}>
                 <View style={styles.imageContainer}>
                      <Image
-                          style={[{width: props.width, height: 1.3*props.width}, styles.avatarModal]}
+                          style={[{width: props.width, height: 1.2*props.width}, styles.avatarModal]}
                           source={{uri: props.avatar.url}}
                      />
                 </View>
@@ -72,10 +70,32 @@ class Person extends Component {
                           <Text style={styles.name}>{selectedPerson.short_name}</Text>
                       </View>
                       <View style={styles.relationships}>
-                          {parents && <Parents parents={parents} onPress={this.props.displayPerson} />}
-                          {partner && <Partner {...partner} onPress={this.props.displayPerson} />}
+                          {parents &&
+                              <UnscrollablePeopleList
+                                  list={parents}
+                                  onPress={this.props.displayPerson}
+                                  photoWidth={width/4.5}
+                                  title={Localization.getString('Parents')}
+                              />
+                          }
+                          {partner &&
+                               <UnscrollablePeopleList
+                                   list={[partner]}
+                                   onPress={this.props.displayPerson}
+                                   photoWidth={width/4.5}
+                                   title={Localization.getString('Partner')}
+                                   style={{alignItems:'flex-end'}}
+                               />
+                          }
                       </View>
-                      {offspring && <Offspring offspring={offspring} onPress={this.props.displayPerson} />}
+                      {offspring &&
+                          <UnscrollablePeopleList
+                              photoWidth={(width - 20)/6}
+                              list={offspring}
+                              onPress={this.props.displayPerson}
+                              title={Localization.getString('Offspring')}
+                          />
+                      }
                   </View>
 
                 <Modal
