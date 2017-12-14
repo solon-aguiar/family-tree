@@ -5,12 +5,13 @@ import {
 } from 'react-native';
 import styles from './styles';
 import ClickableAvatar from '../ClickableAvatar';
+import Localization from '../../services/Localization';
 
 export default function Parents(props) {
     const photoWidth = 80;
     return (
         <View style={styles.container}>
-            <Text>Parents</Text>
+            <Text>{Localization.getString('Parents')}</Text>
             <View style={styles.thumbnails}>
                 {props.parents[0] && <ClickableAvatar
                     onClick={() => props.onPress(props.parents[0].name)}

@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 import Gallery from '../Gallery';
+import Localization from '../../services/Localization';
 
 class Search extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class Search extends Component {
                     value={this.state.query}
                     autoCapitalize={'none'}
                     style={styles.textInput}
-                    placeholder={"Type the person's name here"}
+                    placeholder={Localization.getString('SearchPlaceholder')}
                     autoCorrect={false}
                 />
                 <Gallery

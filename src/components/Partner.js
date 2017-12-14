@@ -4,12 +4,13 @@ import {
   View,
 } from 'react-native';
 import ClickableAvatar from './ClickableAvatar';
+import Localization from '../services/Localization';
 
 export default function Partner(props) {
     const photoWidth = 80;
     return (
         <View>
-            <Text>Significant Other</Text>
+            <Text>{Localization.getString('Partner')}</Text>
             <ClickableAvatar
                 onClick={() => props.onPress(props.name)}
                 width={photoWidth}

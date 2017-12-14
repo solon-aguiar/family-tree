@@ -22,7 +22,7 @@ class SettingsScreen extends Component {
   }
 
   render() {
-    return <Settings localization={Localization} navigation={this.props.navigation} navigateToHome={() => this.navigateToHome()} />;
+    return <Settings navigation={this.props.navigation} navigateToHome={() => this.navigateToHome()} />;
   }
 }
 

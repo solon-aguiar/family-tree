@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  ScrollView,
-  Image,
   Dimensions,
   View,
-  TouchableOpacity,
   Text
 } from 'react-native';
 import styles from './styles';
 import ClickableAvatar from '../ClickableAvatar';
+import Localization from '../../services/Localization';
 
 export default function Offspring(props) {
     const {width} = Dimensions.get('window');
@@ -16,7 +14,7 @@ export default function Offspring(props) {
 
     return (
         <View style={styles.container}>
-            {props.offspring && <Text style={styles.text}>Offspring</Text>}
+            {props.offspring && <Text style={styles.text}>{Localization.getString('Offspring')}</Text>}
             <View style={styles.list}>
                 {props.offspring.map((child, index) => {
                     if (child) {

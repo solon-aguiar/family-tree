@@ -15,12 +15,13 @@ import Parents from '../Parents';
 import NoDataView from '../NoDataView';
 import {observer} from 'mobx-react';
 import ClickableAvatar from '../ClickableAvatar';
+import Localization from '../../services/Localization';
 
 function PersonDetails(props) {
     return (
         <View style={styles.modalContainer}>
             <TouchableOpacity onPress={props.close} style={styles.closeButton}>
-                <Text style={styles.closeButtonText}>Close</Text>
+                <Text style={styles.closeButtonText}>{Localization.getString('Close')}</Text>
             </TouchableOpacity>
             <View style={styles.personDetailsContainer}>
                 <View style={styles.imageContainer}>
@@ -31,10 +32,10 @@ function PersonDetails(props) {
                 </View>
                 <View style={styles.modalInfoContainer}>
                     <Text style={styles.personDetailsData}>{props.name}</Text>
-                    <Text style={styles.personDetailsData}>{`Nicknamed: ${props.short_name}`}</Text>
-                    {props.placeOfBirth && <Text style={styles.personDetailsData}>{`Place of birth: ${props.place_of_birth}`}</Text>}
-                    {props.livesIn && <Text style={styles.personDetailsData}>{`Currently lives in: ${props.lives_in}`}</Text>}
-                    {props.languages && <Text style={styles.personDetailsData}>{`Speaks: ${props.speaks.join(',')}`}</Text>}
+                    <Text style={styles.personDetailsData}>{`${Localization.getString("Nickname")}: ${props.short_name}`}</Text>
+                    {props.placeOfBirth && <Text style={styles.personDetailsData}>{`${Localization.getString("Birthplace")}: ${props.place_of_birth}`}</Text>}
+                    {props.livesIn && <Text style={styles.personDetailsData}>{`${Localization.getString("LivesIn")}: ${props.lives_in}`}</Text>}
+                    {props.languages && <Text style={styles.personDetailsData}>{`${Localization.getString("Speaks")}: ${props.speaks.join(',')}`}</Text>}
                 </View>
 
             </View>
