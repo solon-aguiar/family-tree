@@ -28,40 +28,37 @@ export default styles = StyleSheet.create({
         flexDirection: 'column'
     },
     modalContainer: {
-        padding: 30,
+        paddingVertical: 30,
         flex: 1,
         backgroundColor: 'white',
-      },
-  photos: {
-    flex: 1
-  },
-  relationships: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20
-  },
-  personDetailsContainer: {
-    alignItems: 'center',
-  },
-  closeButton: {
-    margin: 5,
-    alignItems: 'flex-end',
-  },
-  closeButtonText: {
-    fontSize: 20,
-  },
-  avatarModal: {
-    height: 400,
-    width: 200,
-    margin: 5
-  },
-  personDetailsData: {
-    fontSize: 20,
-    marginBottom: 5
-  },
-  relations: {
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  }
+    },
+    closeButton: {
+        margin: 5,
+        alignItems: 'flex-start'
+    },
+    avatarModal: {
+        borderWidth: 2,
+        borderColor: 'black'
+    },
+    personDetailsContainer: {
+        marginTop: 5,
+        flex: 1,
+        flexDirection: 'column'
+    },
+    modalInfoContainer: {
+        alignItems: 'center'
+    },
+    closeButtonText: {
+        fontSize: 25,
+        color: '#037aff'
+    },
+    relationships: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20
+    },
+    personDetailsData: {
+        fontSize: 20,
+        marginBottom: 5
+    },
 });

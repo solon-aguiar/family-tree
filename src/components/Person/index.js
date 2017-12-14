@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   Image,
@@ -18,24 +17,29 @@ import {observer} from 'mobx-react';
 import ClickableAvatar from '../ClickableAvatar';
 
 function PersonDetails(props) {
-  return (
-    <View style={styles.modalContainer}>
-      <TouchableOpacity onPress={props.close} style={styles.closeButton}>
-        <Text style={styles.closeButtonText}>Close</Text>
-      </TouchableOpacity>
-      <View style={styles.personDetailsContainer}>
-          <Text style={styles.personDetailsData}>{props.name}</Text>
-          <Image
-            style={styles.avatarModal}
-            source={{uri: props.avatar.url}}
-          />
-          <Text style={styles.personDetailsData}>{`Called by: ${props.short_name}`}</Text>
-          {props.place_of_birth && <Text style={styles.personDetailsData}>{`Place of birth: ${props.place_of_birth}`}</Text>}
-          {props.lives_in && <Text style={styles.personDetailsData}>{`Currently lives in: ${props.lives_in}`}</Text>}
-          {props.soccer_team && <Text style={styles.personDetailsData}>{`Favorite soccer team: ${props.soccer_team}`}</Text>}
-      </View>
-     </View>
-  )
+    return (
+        <View style={styles.modalContainer}>
+            <TouchableOpacity onPress={props.close} style={styles.closeButton}>
+                <Text style={styles.closeButtonText}>Close</Text>
+            </TouchableOpacity>
+            <View style={styles.personDetailsContainer}>
+                <View style={styles.imageContainer}>
+                     <Image
+                          style={[{width: props.width, height: 1.3*props.width}, styles.avatarModal]}
+                          source={{uri: props.avatar.url}}
+                     />
+                </View>
+                <View style={styles.modalInfoContainer}>
+                    <Text style={styles.personDetailsData}>{props.name}</Text>
+                    <Text style={styles.personDetailsData}>{`Nicknamed: ${props.short_name}`}</Text>
+                    {props.placeOfBirth && <Text style={styles.personDetailsData}>{`Place of birth: ${props.place_of_birth}`}</Text>}
+                    {props.livesIn && <Text style={styles.personDetailsData}>{`Currently lives in: ${props.lives_in}`}</Text>}
+                    {props.languages && <Text style={styles.personDetailsData}>{`Speaks: ${props.speaks.join(',')}`}</Text>}
+                </View>
+
+            </View>
+        </View>
+    );
 }
 
 @observer
@@ -78,7 +82,7 @@ class Person extends Component {
                   transparent={true}
                   visible={this.state.showingPersonDetails}
                 >
-                  <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} />
+                  <PersonDetails {...selectedPerson} close={this.toggleShowingPersonDetails} width={width} />
                 </Modal>
               </View>
           </ScrollView>
