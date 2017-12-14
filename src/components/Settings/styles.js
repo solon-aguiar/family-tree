@@ -1,6 +1,7 @@
 import {
   StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
   container: {
@@ -17,43 +18,39 @@ export default styles = StyleSheet.create({
       justifyContent: 'space-between',
       flex: 1
   },
-  action: {
-      borderColor: 'black',
-      borderWidth: 1
-  },
   filler: {
       flex: 1
   },
   text: {
-    fontSize: 25
+      fontSize: 25
   },
   modal: {
-    backgroundColor: 'white',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center'
+      backgroundColor: Colors.MODAL_BACKGROUND,
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center'
   },
   textInput: {
-    borderColor: 'gray',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    marginTop: 100,
-    height: 40
+      borderColor: Colors.TEXT_INPUT_BORDER,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+      marginTop: 100,
+      height: 40
   },
   btn: {
       width: 100,
       marginTop: 15
   },
   buttonsPanel: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center'
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center'
   },
   loadingIndicator: {
       flex: 1
   },
   error: {
       textAlign: 'center',
-      color: 'red'
+      color: Colors.RED_WARNING
   }
 });

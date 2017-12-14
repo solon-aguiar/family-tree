@@ -1,6 +1,7 @@
 import {
   StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
   container: {
@@ -14,6 +15,6 @@ export default styles = StyleSheet.create({
   },
   photo: {
       borderWidth: 2,
-      borderColor: 'white'
+      borderColor: Colors.MODAL_BACKGROUND
   }
 });

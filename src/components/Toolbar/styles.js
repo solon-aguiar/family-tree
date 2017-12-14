@@ -1,6 +1,7 @@
 import {
   StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
   container: {
@@ -9,6 +10,6 @@ export default styles = StyleSheet.create({
     alignItems: 'flex-start',
     paddingHorizontal: 20,
     paddingVertical: 15,
-    backgroundColor: 'white'
+    backgroundColor: Colors.MODAL_BACKGROUND
   }
 });

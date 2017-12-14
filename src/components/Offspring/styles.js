@@ -1,6 +1,7 @@
 import {
   StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
   list: {
@@ -10,7 +11,7 @@ export default styles = StyleSheet.create({
   },
   photo: {
       borderWidth: 1,
-      borderColor: 'white'
+      borderColor: Colors.MODAL_BACKGROUND
   },
   container: {
       flex: 1,

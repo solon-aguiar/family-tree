@@ -1,6 +1,7 @@
 import {
     StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
     container: {
@@ -10,7 +11,7 @@ export default styles = StyleSheet.create({
         marginBottom: 10,
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        borderColor: 'gray',
+        borderBottomColor: Colors.TEXT_INPUT_BORDER,
         height: 40
     }
 });

@@ -7,13 +7,14 @@ import Person from '../components/Person';
 import Toolbar from '../components/Toolbar';
 import PersonStore from '../store/PersonStore';
 import Localization from '../services/Localization';
+import Colors from '../common/Colors';
 
 class PersonScreen extends Component {
     static navigationOptions = {
         title: Localization.getString('PersonScreen'),
         headerStyle: {
             marginTop: 10,
-            backgroundColor: 'white'
+            backgroundColor: Colors.MODAL_BACKGROUND
         }
     };
 

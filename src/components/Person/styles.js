@@ -1,6 +1,7 @@
 import {
   StyleSheet
 } from 'react-native';
+import Colors from '../../common/Colors';
 
 export default styles = StyleSheet.create({
     container: {
@@ -16,7 +17,7 @@ export default styles = StyleSheet.create({
     },
     nameContainer: {
         borderBottomWidth: 1,
-        borderBottomColor: 'gray'
+        borderBottomColor: Colors.TEXT_INPUT_BORDER
     },
     nameAndPartner: {
         flex: 1,
@@ -30,7 +31,7 @@ export default styles = StyleSheet.create({
     modalContainer: {
         paddingVertical: 30,
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: Colors.MODAL_BACKGROUND,
     },
     closeButton: {
         margin: 5,
@@ -50,7 +51,7 @@ export default styles = StyleSheet.create({
     },
     closeButtonText: {
         fontSize: 25,
-        color: '#037aff'
+        color: Colors.BUTTON_BLUE
     },
     relationships: {
         flexDirection: 'row',
