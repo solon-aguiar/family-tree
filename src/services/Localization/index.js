@@ -20,7 +20,6 @@ class Localization {
     }
 
     getString(name, ...params) { //params are for pluralization usage (future)
-        console.log(Strings);
         let translations = Strings[this.currentLanguage];
         if (!translations) {
             translations = Strings[defaultLanguage];

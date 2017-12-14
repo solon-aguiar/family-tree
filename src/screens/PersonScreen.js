@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import Person from '../components/Person';
 import Toolbar from '../components/Toolbar';
 import PersonStore from '../store/PersonStore';
+import Localization from '../services/Localization';
 
 class PersonScreen extends Component {
     static navigationOptions = {
-        title: 'Person Info',
+        title: Localization.getString('PersonScreen'),
         headerStyle: {
-            marginTop: 10
+            marginTop: 10,
+            backgroundColor: 'white'
         }
     };
 

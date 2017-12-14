@@ -50,6 +50,7 @@ function updateData(token, successCallback, errorCallback) {
                    CameraRoll.saveToCameraRoll(el.avatar.tempPath)
                    .then((localUri) => {
                        el.avatar.url = localUri;
+                       el.avatar.tempPath = undefined;
                        resolve(el);
                    })
                    .catch((error) => {

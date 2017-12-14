@@ -31,7 +31,7 @@ class Settings extends Component {
       this.setState({showingModal, loading: false})
   }
 
-  updateSuccess() {
+  updateSuccess = () => {
       this.toggleModal(false);
       this.props.navigateToHome();
   }
@@ -39,7 +39,7 @@ class Settings extends Component {
   loadData = () => {
       if (!!!this.state.loading) {
           this.setState({loading: true, showError: false})
-          SettingsActions.updateData(this.state.token, () => this.updateSuccess(), () => this.updateError());
+          SettingsActions.updateData(this.state.token, this.updateSuccess, this.updateError);
       }
   }
 
@@ -57,13 +57,18 @@ class Settings extends Component {
       SettingsActions.deleteData(this.props.navigateToHome);
   }
 
+  changeLanguage = (languageCode) => {
+      Localization.currentLanguage = languageCode;
+      this.props.navigateToHome();
+  }
+
   render() {
       return (
         <View style={styles.container}>
           <View style={styles.languagePicker}>
             <Picker
               selectedValue={Localization.currentLanguage}
-              onValueChange={(itemValue) => Localization.currentLanguage = itemValue}
+              onValueChange={(itemValue) => this.changeLanguage(itemValue)}
             >
               {Localization.getAvailableLanguages().map((lang) => <Picker.Item label={lang.language_name} value={lang.language_code} key={lang.language_code}/>)}
             </Picker>

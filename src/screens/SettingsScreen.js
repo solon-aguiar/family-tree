@@ -5,9 +5,10 @@ import { NavigationActions } from 'react-navigation';
 
 class SettingsScreen extends Component {
    static navigationOptions = {
-       title: 'Settings',
+       title: Localization.getString('SettingsScreen'),
        headerStyle: {
-           marginTop: 10
+           marginTop: 10,
+           backgroundColor: 'white'
        }
   };
 

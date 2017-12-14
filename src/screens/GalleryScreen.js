@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Gallery from '../components/Gallery';
 import PersonStore from '../store/PersonStore';
 import { NavigationActions } from 'react-navigation';
+import Localization from '../services/Localization';
 
 class GalleryScreen extends Component {
     static navigationOptions = {
-        title: 'Gallery',
+        title: Localization.getString('Gallery'),
         headerStyle: {
-            marginTop: 10
+            marginTop: 10,
+            backgroundColor: 'white'
         }
     };
 

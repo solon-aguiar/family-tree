@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Search from '../components/Search';
 import PersonStore from '../store/PersonStore';
 import { NavigationActions } from 'react-navigation';
+import Localization from '../services/Localization';
 
 class SearchScreen extends Component {
     static navigationOptions = {
-        title: 'Search',
+        title: Localization.getString('SearchScreen'),
         headerStyle: {
-            marginTop: 10
+            marginTop: 10,
+            backgroundColor: 'white'
         }
     };
 

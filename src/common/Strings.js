@@ -26,7 +26,13 @@ const ENGLISH = Object.freeze({
     SearchPlaceholder: 'Type in the name...',
     PasswordPrompt: 'Type in the password...',
     Done: 'Done',
-    Back: 'Back'
+    Back: 'Back',
+
+    //Pages
+    GalleryScreen: 'Gallery',
+    SearchScreen: 'Search',
+    PersonScreen: 'Person info',
+    SettingsScreen: 'Settings'
 });
 
 const PORTUGUESE = Object.freeze({
@@ -56,7 +62,13 @@ const PORTUGUESE = Object.freeze({
     SearchPlaceholder: 'Digite o nome...',
     PasswordPrompt: 'Digite a senha...',
     Done: 'Ok',
-    Back: 'Voltar'
+    Back: 'Voltar',
+
+    //Pages
+    GalleryScreen: 'Galeria',
+    SearchScreen: 'Busca',
+    PersonScreen: 'Dados pessoais',
+    SettingsScreen: 'Configurações'
 });
 
 export { PORTUGUESE as pt_BR, ENGLISH as en_US };
