@@ -36,7 +36,7 @@ class FinalResults extends Component {
                         <Text style={styles.finalResultsText}>{`${percentage}% ${Localization.getString('QuizPercentage')}`}</Text>
                         {percentage <= 25 && <Text style={styles.finalResultsText}>{Localization.getString('QuizPoorPerformance')}</Text>}
                         {percentage >= 26 && percentage < 50 && <Text style={styles.finalResultsText}>{Localization.getString('QuizBadPerformance')}</Text>}
-                        {percentage >= 51 && percentage < 75 && <Text style={styles.finalResultsText}>{Localization.getString('QuizGoodPerformance')}</Text>}
+                        {percentage >= 50 && percentage < 75 && <Text style={styles.finalResultsText}>{Localization.getString('QuizGoodPerformance')}</Text>}
                         {percentage >= 75 && <Text style={styles.finalResultsText}>{Localization.getString('QuizBestPerformance')}</Text>}
                     </View>
                     <View style={styles.finalResultsButtonContainer}>
