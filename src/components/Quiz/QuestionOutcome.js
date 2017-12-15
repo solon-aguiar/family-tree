@@ -13,7 +13,7 @@ export default function QuestionOutcome(props) {
             {props.answeredCorrectly && <Text style={styles.questionOutcomeText}>{Localization.getString('QuizCorrectAnswer')}</Text>}
             {!props.answeredCorrectly && <Text style={styles.questionOutcomeText}>{Localization.getString('QuizWrongAnswer')}</Text>}
             <TouchableOpacity style={styles.questionOutcomeButton} onPress={props.goToNext}>
-                <Text style={styles.questionOutcomeNext}>{Localization.getString('QuizNextQuestion')}</Text>
+                <Text style={styles.questionOutcomeNext}>{props.hasNext ? Localization.getString('QuizNextQuestion') : Localization.getString('QuizSeeFinalResults') }</Text>
             </TouchableOpacity>
         </View>
     );

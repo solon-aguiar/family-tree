@@ -36,11 +36,16 @@ class Question extends Component {
     }
 
     findSuitableOptions = (people, correctName) => {
-        let options = [correctName];
-        options.push("Test 1");
-        options.push("Test 2");
+        const options = [correctName];
+        while (options.length < 3) {
+           const randomPosition = random(0, people.length);
+           const name = people[randomPosition].name;
+           if (!options.includes(name)) {
+               options.push(name);
+           }
+        }
 
-        return options;
+        return shuffle(options);
     }
 
     getTextColorForOption = (optionName, correctAnswer) => {

@@ -52,7 +52,8 @@ const ENGLISH = Object.freeze({
     QuizBadPerformance:  'Not the worst... but definitely not good!',
     QuizGoodPerformance:  'Not bad! You still have to meet some people, but did very well!',
     QuizBestPerformance:  'Wow! You really know everyone!',
-    QuizDoneButton: 'Go back to Person Details'
+    QuizDoneButton: 'Go back to Person Details',
+    QuizSeeFinalResults: 'See final results'
 });
 
 const PORTUGUESE = Object.freeze({
@@ -65,6 +66,8 @@ const PORTUGUESE = Object.freeze({
     //Messages
     ClickPrompt: 'Clique no',
     DownloadDataExplanation: 'e escolha "Atualizar dados" para baixar os dados atualizados',
+    QuizExplanation: 'Nesse jogo, você terá que escolher o nome correto para a pessoa da foto.',
+    QuizCommand: 'Esolha uma opção abaixo para jogar ou voltar à tela anterior.',
 
     //Relationships
     Offspring: 'Filhos',
@@ -83,12 +86,31 @@ const PORTUGUESE = Object.freeze({
     PasswordPrompt: 'Digite a senha...',
     Done: 'Ok',
     Back: 'Voltar',
+    Start: 'Começar!',
 
     //Pages
     GalleryScreen: 'Galeria',
     SearchScreen: 'Busca',
     PersonScreen: 'Dados pessoais',
-    SettingsScreen: 'Configurações'
+    SettingsScreen: 'Configurações',
+    QuizScreen: 'Quiz',
+
+    //Quiz
+    QuizCorrectQuestionsAnswered: '# de respostas corretas',
+    QuizTotalQuestions: '# de perguntas',
+    QuizRemainingQuestions: '# de perguntas restantes',
+    QuizCorrectAnswer: 'Uau! Resposta correta!',
+    QuizWrongAnswer: 'Que pena! Incorreto...',
+    QuizNextQuestion: 'Próxima pergunta!',
+    QuizHeader: 'Quem é?',
+    QuizDone: 'Você terminou! Obrigado por jogar.',
+    QuizPercentage: 'de respostas corretas.',
+    QuizPoorPerformance: 'Opa... não muito bom. Você precisa conhecer mais pessoas!',
+    QuizBadPerformance:  'Não foi o pior possível... mas definitivamente não foi bom!',
+    QuizGoodPerformance:  'Nada mal! Você ainda precisa conhecer algumas pessoas, mas foi bem!',
+    QuizBestPerformance:  'Uau! Você realmente conhece todo mundo!',
+    QuizDoneButton: 'Voltar para os dados pessoais',
+    QuizSeeFinalResults: 'Ver o resultado final'
 });
 
 export { PORTUGUESE as pt_BR, ENGLISH as en_US };

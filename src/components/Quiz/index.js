@@ -32,7 +32,6 @@ class Quiz extends Component {
     }
 
     recordAnswer = (answer) => {
-        console.log("AQUI COM", this.state);
         if (this.state.people[this.state.currentPersonIndex].name === answer) {
             this.setState({
                 isAnsweringQuestion: false,
@@ -57,13 +56,15 @@ class Quiz extends Component {
     render() {
         const totalPeople = this.state.people.length;
         const isDone = this.state.currentPersonIndex === totalPeople;
+        const hasNext = this.state.currentPersonIndex + 1 !== totalPeople;
+        
         return (
             <View>
                 {this.state.showingModal && <QuizModal back={this.props.endGame} start={this.start} />}
                 {!this.state.showingModal && isDone && <FinalResults endGame={this.props.endGame} correctAnswers={this.state.correctAnswers} total={totalPeople} />}
                 {!this.state.showingModal && !isDone && <CurrentResults total={totalPeople} corrects={this.state.correctAnswers} toGo={totalPeople - this.state.currentPersonIndex - 1} />}
                 {!this.state.showingModal && !isDone && <Question people={this.state.people} current={this.state.currentPersonIndex} recordAnswer={this.recordAnswer} /> }
-                {!this.state.showingModal && !this.state.isAnsweringQuestion && <QuestionOutcome answeredCorrectly={this.state.answeredCorrectly} goToNext={this.nextQuestion} />}
+                {!this.state.showingModal && !this.state.isAnsweringQuestion && <QuestionOutcome answeredCorrectly={this.state.answeredCorrectly} goToNext={this.nextQuestion} hasNext={hasNext} />}
             </View>
         );
     }
