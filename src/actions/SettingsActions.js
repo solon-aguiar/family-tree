@@ -7,6 +7,14 @@ import FamilyTree from '../services/FamilyTree';
 import { STORAGE_DATA_KEY, STORAGE_LANGUAGE_SELECTION_KEY } from '../common/Storage';
 import Localization from '../services/Localization';
 
+function saveToCamera(url) {
+    CameraRoll.saveToCameraRoll(el.avatar.tempPath)
+        .then((localUri) => return localUri).catch((error) => {
+            //keeps retrying - use a counter for max retries?
+            return saveToCamera(url);
+        });
+}
+
 function updateData(token, successCallback, errorCallback) {
     FamilyTree.fetchLatestJSON(token)
         .then((response) => response.json())
@@ -35,16 +43,12 @@ function updateData(token, successCallback, errorCallback) {
         .then((localElements) => {
             return localElements.map((el) => {
                 return new Promise((resolve, reject) => {
-                    if (el.avatar.tempPath){
-                        CameraRoll.saveToCameraRoll(el.avatar.tempPath)
-                            .then((localUri) => {
-                                el.avatar.url = localUri;
-                                el.avatar.tempPath = undefined;
-                                resolve(el);
-                            })
-                            .catch((error) => {
-                                reject(error);
-                            });
+                    if (el.avatar.tempPath) {
+                        const localUri = saveToCamera(el.avatar.tempPath);
+                        el.avatar.url = localUri;
+                        el.avatar.tempPath = undefined;
+
+                        resolve(el);
                     } else {
                         resolve(el);
                     }
