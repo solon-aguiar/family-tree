@@ -28,7 +28,7 @@ class PersonStore {
         if (!this.selectedPerson || !this.selectedPerson.offspring) {
             return undefined;
         }
-        return this.selectedPerson.offspring.map((child) => this.people[child]);
+        return this.selectedPerson.offspring.map((child) => this.people[child.name]);
     }
 
     @computed get parents() {

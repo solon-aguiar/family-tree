@@ -11,7 +11,7 @@ import Localization from '../../services/Localization';
 export default function UnscrollablePeopleList(props) {
     return (
         <View style={[styles.container, props.style]}>
-            {props.list && <Text style={styles.text}>{props.title}</Text>}
+            {props.list && props.list[0] && <Text style={styles.text}>{props.title}</Text>}
             <View style={styles.list}>
                 {props.list.map((child, index) => {
                     if (child) {
