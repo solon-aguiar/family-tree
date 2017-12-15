@@ -7,11 +7,21 @@ import FamilyTree from '../services/FamilyTree';
 import { STORAGE_DATA_KEY, STORAGE_LANGUAGE_SELECTION_KEY } from '../common/Storage';
 import Localization from '../services/Localization';
 
-function saveToCamera(url) {
-    CameraRoll.saveToCameraRoll(el.avatar.tempPath)
-        .then((localUri) => return localUri).catch((error) => {
-            //keeps retrying - use a counter for max retries?
-            return saveToCamera(url);
+function saveToCamera(attempt, element, resolve, reject) {
+    CameraRoll.saveToCameraRoll(element.avatar.tempPath)
+        .then((localUri) => {
+            element.avatar.url = localUri;
+            element.avatar.tempPath = undefined;
+
+            resolve(element);
+            return;
+        })
+        .catch((error) => {
+            if (attempt < 10) {
+                setTimeout(() => saveToCamera(attempt + 1, element, resolve, reject), 100);
+            } else {
+                reject("Error while trying to save " + element.avatar.file + " to camera!");
+            }
         });
 }
 
@@ -44,11 +54,7 @@ function updateData(token, successCallback, errorCallback) {
             return localElements.map((el) => {
                 return new Promise((resolve, reject) => {
                     if (el.avatar.tempPath) {
-                        const localUri = saveToCamera(el.avatar.tempPath);
-                        el.avatar.url = localUri;
-                        el.avatar.tempPath = undefined;
-
-                        resolve(el);
+                        saveToCamera(0, el, resolve, reject);
                     } else {
                         resolve(el);
                     }
