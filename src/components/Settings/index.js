@@ -58,8 +58,7 @@ class Settings extends Component {
   }
 
   changeLanguage = (languageCode) => {
-      Localization.currentLanguage = languageCode;
-      this.props.navigateToHome();
+      SettingsActions.changeLanguage(languageCode);
   }
 
   render() {

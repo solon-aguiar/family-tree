@@ -4,7 +4,8 @@ import {
 } from 'react-native';
 import PersonStore from '../store/PersonStore';
 import FamilyTree from '../services/FamilyTree';
-import { STORAGE_DATA_KEY } from '../common/Storage';
+import { STORAGE_DATA_KEY, STORAGE_LANGUAGE_SELECTION_KEY } from '../common/Storage';
+import Localization from '../services/Localization';
 
 function updateData(token, successCallback, errorCallback) {
     FamilyTree.fetchLatestJSON(token)
@@ -69,4 +70,10 @@ function deleteData(successCallback) {
     });
 }
 
-export {updateData, deleteData};
+function changeLanguage(selectedLanguage, callback) {
+    AsyncStorage.setItem(STORAGE_LANGUAGE_SELECTION_KEY, selectedLanguage, () => {
+        Localization.currentLanguage = selectedLanguage;
+    });
+}
+
+export {updateData, deleteData, changeLanguage};

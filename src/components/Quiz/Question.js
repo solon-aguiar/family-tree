@@ -14,7 +14,8 @@ class Question extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            answered: false
+            answered: false,
+            names: this.findSuitableOptions(this.props.people, this.props.people[this.props.current].name)
         };
     }
 
@@ -30,7 +31,8 @@ class Question extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.current !== this.props.current) {
             this.setState({
-                answered: false
+                answered: false,
+                names: this.findSuitableOptions(nextProps.people, nextProps.people[nextProps.current].name)
             });
         }
     }
@@ -64,14 +66,13 @@ class Question extends Component {
         const { width } = Dimensions.get('window');
         const currentIndex = this.props.current;
         const currentPerson = this.props.people[currentIndex];
-        const names = this.findSuitableOptions(this.props.people, currentPerson.name);
 
         return (
             <View style={styles.questionContainer}>
                 <Text style={styles.questionHeader}>{Localization.getString('QuizHeader')}</Text>
                 <Image style={{width: 0.6 * width, height: 0.8* width}} source={{uri: currentPerson.avatar.url}} />
                 <View style={styles.questionOptions}>
-                    {names.map((value, index) => {
+                    {this.state.names.map((value, index) => {
                         const textStyle = this.getTextColorForOption(value, currentPerson.name);
                         return (
                             <TouchableOpacity key={index} style={styles.questionOption} onPress={() => this.recordAnswer(value)}>
