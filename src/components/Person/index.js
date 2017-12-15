@@ -30,10 +30,10 @@ function PersonDetails(props) {
                 </View>
                 <View style={styles.modalInfoContainer}>
                     <Text style={styles.personDetailsData}>{props.name}</Text>
-                    <Text style={styles.personDetailsData}>{`${Localization.getString("Nickname")}: ${props.short_name}`}</Text>
-                    {props.placeOfBirth && <Text style={styles.personDetailsData}>{`${Localization.getString("Birthplace")}: ${props.place_of_birth}`}</Text>}
-                    {props.livesIn && <Text style={styles.personDetailsData}>{`${Localization.getString("LivesIn")}: ${props.lives_in}`}</Text>}
-                    {props.languages && <Text style={styles.personDetailsData}>{`${Localization.getString("Speaks")}: ${props.speaks.join(',')}`}</Text>}
+                    <Text style={styles.personDetailsData}>{`${Localization.getString("Nickname")}: ${props.shortName}`}</Text>
+                    {props.placeOfBirth && <Text style={styles.personDetailsData}>{`${Localization.getString("Birthplace")}: ${props.placeOfBirth}`}</Text>}
+                    {props.livesIn && <Text style={styles.personDetailsData}>{`${Localization.getString("LivesIn")}: ${props.livesIn}`}</Text>}
+                    {props.languages && <Text style={styles.personDetailsData}>{`${Localization.getString("Speaks")}: ${props.languages.join(',')}`}</Text>}
                 </View>
 
             </View>
@@ -67,7 +67,7 @@ class Person extends Component {
 
                   <View style={styles.information}>
                       <View style={styles.nameContainer}>
-                          <Text style={styles.name}>{selectedPerson.short_name}</Text>
+                          <Text style={styles.name}>{selectedPerson.name}</Text>
                       </View>
                       <View style={styles.relationships}>
                           {parents &&
