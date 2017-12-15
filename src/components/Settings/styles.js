@@ -22,7 +22,8 @@ export default styles = StyleSheet.create({
       flex: 1
   },
   text: {
-      fontSize: 25
+      fontSize: 25,
+      color: Colors.BUTTON_BLUE
   },
   modal: {
       backgroundColor: Colors.MODAL_BACKGROUND,

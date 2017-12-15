@@ -9,11 +9,11 @@ import Localization from '../../services/Localization';
 
 export default function QuestionOutcome(props) {
     return (
-        <View>
-            {props.answeredCorrectly && <Text>{Localization.getString('QuizCorrectAnswer')}</Text>}
-            {!props.answeredCorrectly && <Text>{Localization.getString('QuizWrongAnswer')}</Text>}
-            <TouchableOpacity onPress={props.goToNext}>
-                <Text>{Localization.getString('QuizNextQuestion')}</Text>
+        <View style={styles.questionOutcomeContainer}>
+            {props.answeredCorrectly && <Text style={styles.questionOutcomeText}>{Localization.getString('QuizCorrectAnswer')}</Text>}
+            {!props.answeredCorrectly && <Text style={styles.questionOutcomeText}>{Localization.getString('QuizWrongAnswer')}</Text>}
+            <TouchableOpacity style={styles.questionOutcomeButton} onPress={props.goToNext}>
+                <Text style={styles.questionOutcomeNext}>{Localization.getString('QuizNextQuestion')}</Text>
             </TouchableOpacity>
         </View>
     );

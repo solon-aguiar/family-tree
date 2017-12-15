@@ -61,7 +61,7 @@ class Quiz extends Component {
             <View>
                 {this.state.showingModal && <QuizModal back={this.props.endGame} start={this.start} />}
                 {!this.state.showingModal && isDone && <FinalResults endGame={this.props.endGame} correctAnswers={this.state.correctAnswers} total={totalPeople} />}
-                {!this.state.showingModal && !isDone && <CurrentResults total={totalPeople} corrects={this.state.correctAnswers} toGo={totalPeople - this.state.currentPersonIndex} />}
+                {!this.state.showingModal && !isDone && <CurrentResults total={totalPeople} corrects={this.state.correctAnswers} toGo={totalPeople - this.state.currentPersonIndex - 1} />}
                 {!this.state.showingModal && !isDone && <Question people={this.state.people} current={this.state.currentPersonIndex} recordAnswer={this.recordAnswer} /> }
                 {!this.state.showingModal && !this.state.isAnsweringQuestion && <QuestionOutcome answeredCorrectly={this.state.answeredCorrectly} goToNext={this.nextQuestion} />}
             </View>

@@ -44,7 +44,15 @@ const ENGLISH = Object.freeze({
     QuizRemainingQuestions: '# of questions remaining',
     QuizCorrectAnswer: 'Good job! You got the right answer',
     QuizWrongAnswer: 'Oh no! That was the wrong answer',
-    QuizNextQuestion: 'Next question!'
+    QuizNextQuestion: 'Next question!',
+    QuizHeader: 'Who is this?',
+    QuizDone: 'You are done! Thanks for playing.',
+    QuizPercentage: 'of correct answers.',
+    QuizPoorPerformance: 'Uh... not very good. You have to get to know more people!',
+    QuizBadPerformance:  'Not the worst... but definitely not good!',
+    QuizGoodPerformance:  'Not bad! You still have to meet some people, but did very well!',
+    QuizBestPerformance:  'Wow! You really know everyone!',
+    QuizDoneButton: 'Go back to Person Details'
 });
 
 const PORTUGUESE = Object.freeze({

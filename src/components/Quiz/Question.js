@@ -8,12 +8,11 @@ import {
 } from 'react-native';
 import styles from './styles';
 import { shuffle, random } from '../../common/Random';
+import Localization from '../../services/Localization';
 
 class Question extends Component {
     constructor(props) {
         super(props);
-        console.log("RENDERED NEW QUESTION", this.props);
-
         this.state = {
             answered: false
         };
@@ -62,10 +61,9 @@ class Question extends Component {
         const currentPerson = this.props.people[currentIndex];
         const names = this.findSuitableOptions(this.props.people, currentPerson.name);
 
-        console.log("names", names);
-
         return (
             <View style={styles.questionContainer}>
+                <Text style={styles.questionHeader}>{Localization.getString('QuizHeader')}</Text>
                 <Image style={{width: 0.6 * width, height: 0.8* width}} source={{uri: currentPerson.avatar.url}} />
                 <View style={styles.questionOptions}>
                     {names.map((value, index) => {

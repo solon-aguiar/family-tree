@@ -29,7 +29,8 @@ export default styles = StyleSheet.create({
         alignItems: 'center'
     },
     modalButtonText: {
-        fontSize: 17
+        fontSize: 17,
+        color: Colors.BUTTON_BLUE
     },
     currentResultsContainer: {
         padding: 5,
@@ -54,5 +55,47 @@ export default styles = StyleSheet.create({
     questionResponseOption: {
         textAlign: 'center',
         fontSize: 20
+    },
+    questionOutcomeContainer: {
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    questionOutcomeText: {
+        fontSize: 20
+    },
+    questionHeader: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginBottom: 5
+    },
+    questionOutcomeButton: {
+        marginTop: 20
+    },
+    questionOutcomeNext: {
+        fontSize: 20,
+        color: Colors.BUTTON_BLUE
+    },
+    finalResultsContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: Colors.MODAL_BACKGROUND
+    },
+    finalResultsText: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 10
+    },
+    finalResultsTextContainer: {
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    finalResultsButtonContainer: {
+        flex: 1
+    },
+    finalResultButtonText: {
+        fontSize: 25,
+        color: Colors.BUTTON_BLUE
     }
 });
