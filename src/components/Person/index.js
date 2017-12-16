@@ -21,7 +21,7 @@ function PersonDetails(props) {
             <TouchableOpacity onPress={props.close} style={styles.closeButton}>
                 <Text style={styles.closeButtonText}>{Localization.getString('Close')}</Text>
             </TouchableOpacity>
-            <View style={styles.personDetailsContainer}>
+            <ScrollView style={styles.personDetailsContainer}>
                 <View style={styles.imageContainer}>
                      <Image
                           style={[{width: props.width, height: 1.2*props.width}, styles.avatarModal]}
@@ -33,10 +33,9 @@ function PersonDetails(props) {
                     <Text style={styles.personDetailsData}>{`${Localization.getString("Nickname")}: ${props.shortName}`}</Text>
                     {props.placeOfBirth && <Text style={styles.personDetailsData}>{`${Localization.getString("Birthplace")}: ${props.placeOfBirth}`}</Text>}
                     {props.livesIn && <Text style={styles.personDetailsData}>{`${Localization.getString("LivesIn")}: ${props.livesIn}`}</Text>}
-                    {props.languages && <Text style={styles.personDetailsData}>{`${Localization.getString("Speaks")}: ${props.languages.join(',')}`}</Text>}
+                    {props.languages && <Text style={styles.personDetailsData}>{`${Localization.getString("Speaks")}: ${props.languages.map((language) => Localization.getString(language)).join(', ')}`}</Text>}
                 </View>
-
-            </View>
+            </ScrollView>
         </View>
     );
 }

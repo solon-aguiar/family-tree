@@ -14,7 +14,7 @@ export default function Gallery(props) {
     const photoWidth = width/4;
 
     const allPeople = Object.values(props.store.people);
-    const people = props.query ? allPeople.filter((person) => person.name.indexOf(props.query) !== -1) : allPeople;
+    const people = props.query ? allPeople.filter((person) => person.name.toLowerCase().indexOf(props.query.toLowerCase()) !== -1) : allPeople;
 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>

@@ -18,7 +18,7 @@ const ENGLISH = Object.freeze({
     Parents: 'Parents',
 
     //Labels
-    Nickname: 'Nicknamed',
+    Nickname: 'Called as',
     Birthplace: 'Place of birth',
     LivesIn: 'Lives in',
     Speaks: 'Speaks',
@@ -53,7 +53,13 @@ const ENGLISH = Object.freeze({
     QuizGoodPerformance:  'Not bad! You still have to meet some people, but did very well!',
     QuizBestPerformance:  'Wow! You really know everyone!',
     QuizDoneButton: 'Go back to Person Details',
-    QuizSeeFinalResults: 'See final results'
+    QuizSeeFinalResults: 'See final results',
+
+    pt_BR: 'Portuguese',
+    en_US: 'English',
+    ja_JP: 'Japanese',
+    zh_CN: 'Chinese',
+    es_ES: 'Spanish'
 });
 
 const PORTUGUESE = Object.freeze({
@@ -75,7 +81,7 @@ const PORTUGUESE = Object.freeze({
     Parents: 'Pais',
 
     //Labels
-    Nickname: 'Apelido',
+    Nickname: 'Como chamar',
     Birthplace: 'Local de nascimento',
     LivesIn: 'Mora em',
     Speaks: 'fala',
@@ -110,7 +116,13 @@ const PORTUGUESE = Object.freeze({
     QuizGoodPerformance:  'Nada mal! Você ainda precisa conhecer algumas pessoas, mas foi bem!',
     QuizBestPerformance:  'Uau! Você realmente conhece todo mundo!',
     QuizDoneButton: 'Voltar para os dados pessoais',
-    QuizSeeFinalResults: 'Ver o resultado final'
+    QuizSeeFinalResults: 'Ver o resultado final',
+
+    pt_BR: 'Português',
+    en_US: 'Inglês',
+    ja_JP: 'Japonês',
+    zh_CN: 'Chinês',
+    es_ES: 'Espanhol'
 });
 
 export { PORTUGUESE as pt_BR, ENGLISH as en_US };
