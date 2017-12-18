@@ -7,11 +7,7 @@ import Colors from '../common/Colors';
 
 class SearchScreen extends Component {
     static navigationOptions = {
-        title: Localization.getString('SearchScreen'),
-        headerStyle: {
-            marginTop: 10,
-            backgroundColor: Colors.MODAL_BACKGROUND
-        }
+        title: Localization.getString('SearchScreen')
     };
 
     navigateToHome() {

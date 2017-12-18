@@ -7,11 +7,7 @@ import Colors from '../common/Colors';
 
 class GalleryScreen extends Component {
     static navigationOptions = {
-        title: Localization.getString('GalleryScreen'),
-        headerStyle: {
-            marginTop: 10,
-            backgroundColor: Colors.MODAL_BACKGROUND
-        }
+        title: Localization.getString('GalleryScreen')
     };
 
     navigateToHome() {

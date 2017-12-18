@@ -7,11 +7,7 @@ import Colors from '../common/Colors';
 
 class QuizScreen extends Component {
     static navigationOptions = {
-        title: Localization.getString('QuizScreen'),
-        headerStyle: {
-            marginTop: 10,
-            backgroundColor: Colors.MODAL_BACKGROUND
-        }
+        title: Localization.getString('QuizScreen')
     };
 
     navigateToHome = () => {

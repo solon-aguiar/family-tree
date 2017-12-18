@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   View,
   Image,
+  Keyboard,
   Text,
   Picker,
   Modal,
@@ -38,6 +39,7 @@ class Settings extends Component {
 
   loadData = () => {
       if (!!!this.state.loading) {
+          Keyboard.dismiss();
           this.setState({loading: true, showError: false})
           SettingsActions.updateData(this.state.token, this.updateSuccess, this.updateError);
       }

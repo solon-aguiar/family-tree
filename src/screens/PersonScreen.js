@@ -11,11 +11,7 @@ import Colors from '../common/Colors';
 
 class PersonScreen extends Component {
     static navigationOptions = {
-        title: Localization.getString('PersonScreen'),
-        headerStyle: {
-            marginTop: 10,
-            backgroundColor: Colors.MODAL_BACKGROUND
-        }
+        title: Localization.getString('PersonScreen')
     };
 
   displayPerson = (name) => PersonStore.selectPerson(name);

@@ -6,11 +6,7 @@ import Colors from '../common/Colors';
 
 class SettingsScreen extends Component {
    static navigationOptions = {
-       title: Localization.getString('SettingsScreen'),
-       headerStyle: {
-           marginTop: 10,
-           backgroundColor: Colors.MODAL_BACKGROUND
-       }
+       title: Localization.getString('SettingsScreen')
   };
 
   navigateToHome() {
